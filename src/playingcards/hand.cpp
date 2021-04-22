@@ -5,6 +5,7 @@
 #include "hand.h"
 
 #include <algorithm>
+#include <cassert>
 #include <stdexcept>
 
 namespace playingcards {
@@ -13,8 +14,7 @@ inline constexpr std::size_t k_hand_size{5};
 
 void Hand::AddCard(const Card::ShrPtr& card)
 {
-  if (cards_container_.size() > k_hand_size)
-    std::runtime_error("The hand is already full!");
+  assert(cards_container_.size() <= k_hand_size && "The hand is already full!");
 
   cards_container_.emplace_back(card);
 
@@ -51,6 +51,7 @@ void Hand::CountAndSortRanks(CardRank rank)
           return left.second > right.second;
   });
 
+  // If combination is "a wheel"
   if (ranks_counts_on_hand_.size() == k_hand_size &&
       ranks_counts_on_hand_.begin()->first == CardRank::Ace &&
       (ranks_counts_on_hand_.begin() + 1)->first == CardRank::Five) {
@@ -75,16 +76,14 @@ void Hand::Clear()
 
 PokerCombination Hand::GetPokerCombination() const
 {
-  if (cards_container_.size() != k_hand_size)
-    throw std::runtime_error("The hand is not full!");
+  assert(cards_container_.size() == k_hand_size && "The hand is not full!");
 
   return poker_combination_;
 }
 
 PokerCombination Hand::CalculatePokerCombination()
 {
-  if (cards_container_.size() != k_hand_size)
-    throw std::runtime_error("The hand is not full!");
+  assert(cards_container_.size() == k_hand_size && "The hand is not full!");
 
   bool is_flush = (suits_on_hand_.size() == 1);
 
@@ -125,8 +124,9 @@ PokerCombination Hand::CalculatePokerCombination()
 
 bool operator<(const Hand& left, const Hand& right)
 {
-  if (left.cards_container_.size() != k_hand_size || right.cards_container_.size() != k_hand_size)
-    throw std::runtime_error("Left or right hand is not full!");
+  assert(left.cards_container_.size() == k_hand_size &&
+      right.cards_container_.size() == k_hand_size &&
+          "Left or right hand is not full!");
 
   if (left.poker_combination_ < right.poker_combination_)
     return true;

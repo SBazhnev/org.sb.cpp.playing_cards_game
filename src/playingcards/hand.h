@@ -5,8 +5,9 @@
 #ifndef PLAYINGCARDS_HAND_H_
 #define PLAYINGCARDS_HAND_H_
 
-#include <vector>
+#include <memory>
 #include <set>
+#include <vector>
 
 #include "playingcards/card.h"
 #include "playingcards/poker_combinations.h"
@@ -15,6 +16,8 @@ namespace playingcards {
 
 class Hand {
 public:
+  using ShrPtr = std::shared_ptr<Hand>;
+
   Hand() :
     cards_container_{},
     poker_combination_{PokerCombination::HighCard},
@@ -34,6 +37,11 @@ public:
   void AddCard(const Card::ShrPtr& card);
 
   void Clear();
+
+  const CardsContainer& GetCards() const
+  {
+    return cards_container_;
+  }
 
   PokerCombination GetPokerCombination() const;
   

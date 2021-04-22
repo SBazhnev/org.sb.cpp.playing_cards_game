@@ -7,6 +7,7 @@
 
 #include <cstdint>
 #include <memory>
+#include <string>
 #include <vector>
 
 namespace playingcards {
@@ -22,6 +23,10 @@ enum class CardRank : std::uint16_t {
 extern const std::vector<CardSuit> k_card_suits;
 
 extern const std::vector<CardRank> k_card_ranks;
+
+std::string GetCardSuitText(const CardSuit& suit);
+
+std::string GetCardRankText(const CardRank& rank);
 
 struct Card {
   using ShrPtr = std::shared_ptr<Card>;
