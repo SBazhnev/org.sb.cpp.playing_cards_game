@@ -10,9 +10,9 @@
 namespace ui {
 namespace console {
 
-void Menu::ExecuteOptionHandler(int index)
+void Menu::ExecuteOptionHandler(std::size_t index)
 {
-  assert((index >= 0 && index <= options_.size()-1) && "Index out of range");
+  assert(index <= options_.size()-1 && "Index out of range");
 
   options_[index].get()->HandlerExecute();
 }

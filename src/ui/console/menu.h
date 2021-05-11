@@ -24,7 +24,7 @@ public:
   {
   }
 
-  void ExecuteOptionHandler(int index);
+  void ExecuteOptionHandler(std::size_t index);
 
   void AddOption(const MenuOption::ShrPtr& option);
 
