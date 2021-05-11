@@ -10,20 +10,20 @@
 #include <memory>
 
 #include "ui/console/widget.h"
+#include "ui/console/menu.h"
 
 namespace ui {
 namespace console {
-
-using InputHandler = std::function<void(unsigned short)>;
 
 class MenuOptionInput : public Widget {
 public:
   using WeakPtr = std::weak_ptr<MenuOptionInput>;
   using ShrPtr = std::shared_ptr<MenuOptionInput>;
 
-  explicit MenuOptionInput(std::istream& input_stream, const InputHandler& input_handler,
-      bool visible = true) : Widget{visible}, input_stream_(&input_stream),
-          input_handler_(input_handler)
+  explicit MenuOptionInput(std::istream& input_stream, const Menu::ShrPtr& menu, bool visible = true) :
+      Widget{visible},
+      input_stream_(&input_stream),
+      menu_(menu)
   {
   }
 
@@ -40,7 +40,7 @@ protected:
 
 private:
   std::istream* input_stream_;
-  InputHandler input_handler_;
+  Menu::ShrPtr menu_;
 
 };
 

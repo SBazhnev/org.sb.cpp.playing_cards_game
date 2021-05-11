@@ -13,7 +13,7 @@ namespace console {
 void MenuOptionInput::OutputToStream(std::ostream& output_stream)
 {
   if (this->IsVisible()) {
-    unsigned short menu_option_index;
+    std::size_t menu_option_index;
 
     output_stream << "Enter menu option number >> ";
     *input_stream_ >> menu_option_index;
@@ -26,7 +26,7 @@ void MenuOptionInput::OutputToStream(std::ostream& output_stream)
       std::runtime_error("Incorrect input!");
     }
 
-    input_handler_(menu_option_index);
+    menu_->ExecuteOptionHandler(menu_option_index);
   }
 }
 

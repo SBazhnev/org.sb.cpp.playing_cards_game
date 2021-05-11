@@ -26,8 +26,7 @@ void GameView::OutputToStream(std::ostream& output_stream)
 }
 
 void GameView::Create(const MenuOptionHandlerType& exit, const MenuOptionHandlerType& simple_mode,
-    const MenuOptionHandlerType& two_players_mode, const InputHandler& input,
-        std::istream& input_stream)
+    const MenuOptionHandlerType& two_players_mode, std::istream& input_stream)
 {
   // Common menu
   auto exit_menu_option = std::make_shared<MenuOption>(exit_menu_option_text,exit);
@@ -41,7 +40,7 @@ void GameView::Create(const MenuOptionHandlerType& exit, const MenuOptionHandler
   common_menu->AddOption(two_players_mode_menu_option);
 
   // User input
-  auto menu_option_input = std::make_shared<MenuOptionInput>(input_stream,input);
+  auto menu_option_input = std::make_shared<MenuOptionInput>(input_stream,common_menu);
 
   // Title
   auto title_label = std::make_shared<Label>(title_text);

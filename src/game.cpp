@@ -18,27 +18,24 @@ void Game::Run()
   ui::console::MenuOptionHandlerType simple_mode_handler = std::bind(&Game::ModeSimpleRun,this);
   ui::console::MenuOptionHandlerType two_players_mode_handler = std::bind(&Game::ModeTwoPlayersRun,this);
 
-  ui::console::InputHandler input_handler = std::bind(&Game::InputHandler,this,std::placeholders::_1);
-
-  game_view.Create(exit_handler,simple_mode_handler,two_players_mode_handler,input_handler,std::cin);
+  game_view.Create(exit_handler,simple_mode_handler,two_players_mode_handler,std::cin);
 
   std::cout << game_view;
 }
 
 void Game::ModeSimpleRun()
 {
+  std::cout << "Simple mode \n";
 }
 
 void Game::ModeTwoPlayersRun()
 {
+  std::cout << "Two players mode \n";
 }
 
 void Game::Exit()
 {
-}
-
-void Game::InputHandler(unsigned short index)
-{
+  std::cout << "Exit \n";
 }
 
 } // namespace playingcards

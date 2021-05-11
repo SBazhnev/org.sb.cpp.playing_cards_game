@@ -26,8 +26,6 @@ private:
   void ModeTwoPlayersRun();
   void Exit();
 
-  void InputHandler(unsigned short index);
-
 };
 
 } // namespace playingcards

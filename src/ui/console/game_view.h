@@ -31,8 +31,7 @@ public:
   GameView& operator=(GameView&&) = default;
   
   void Create(const MenuOptionHandlerType& exit, const MenuOptionHandlerType& simple_mode,
-      const MenuOptionHandlerType& two_players_mode, const InputHandler& input_handler,
-          std::istream& input_stream);
+      const MenuOptionHandlerType& two_players_mode, std::istream& input_stream);
 
 protected:
   void OutputToStream(std::ostream&) override;
