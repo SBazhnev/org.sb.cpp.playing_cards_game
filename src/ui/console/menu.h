@@ -26,14 +26,14 @@ public:
 
   void ExecuteOptionHandler(int index);
 
-  void AddOption(MenuOption::WeakPtr&& option);
+  void AddOption(const MenuOption::ShrPtr& option);
 
 protected:
   void OutputToStream(std::ostream&) override;
 
 private:
   // TODO maybe better to use std::set?
-  std::vector<MenuOption::WeakPtr> options_;
+  std::vector<MenuOption::ShrPtr> options_;
 
 };
 

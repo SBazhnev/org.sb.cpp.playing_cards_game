@@ -40,7 +40,8 @@ protected:
   void OutputToStream(std::ostream&) override;
 
 private:
-  std::vector<Widget::WeakPtr> widgets_;
+//  std::vector<Widget::WeakPtr> widgets_;
+  std::vector<Widget::ShrPtr> widgets_;
 
   unsigned int column_;
 

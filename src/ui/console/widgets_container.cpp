@@ -22,18 +22,16 @@ void WidgetsContainer::OutputToStream(std::ostream& output_stream)
   if (!this->IsHide()) {
     unsigned int column_index = 0;
 
-    for (auto& widget_weak : widgets_) {
-      if (auto widget = widget_weak.lock()) {
-        if (!widget->IsHide()) {
-          output_stream << *widget.get();
+    for (auto& widget : widgets_) {
+      if (!widget->IsHide()) {
+        output_stream << *widget.get();
 
-          if (++column_index == column_) {
-            output_stream << std::endl;
-            column_index = 0;
-          }
-          else {
-            output_stream << " ";
-          }
+        if (++column_index == column_) {
+          output_stream << std::endl;
+          column_index = 0;
+        }
+        else {
+          output_stream << " ";
         }
       }
     }
