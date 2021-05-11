@@ -20,7 +20,7 @@ public:
   using WeakPtr = std::weak_ptr<Menu>;
   using ShrPtr = std::shared_ptr<Menu>;
 
-  explicit Menu(bool hide = false) : Widget{hide}, options_{}
+  explicit Menu(bool visible = true) : Widget{visible}, options_{}
   {
   }
 

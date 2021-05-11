@@ -30,30 +30,30 @@ public:
     return out_stream;
   }
 
-  bool IsHide()
+  bool IsVisible()
   {
-    return hide_;
+    return visible_;
   }
 
-  void Hide()
+  void SetVisible()
   {
-    hide_ = true;
+    visible_ = true;
   }
 
-  void Show()
+  void SetInvisible()
   {
-    hide_ = false;
+    visible_ = false;
   }
 
 protected:
-  explicit Widget(bool hide = false) : hide_{hide}
+  explicit Widget(bool visible = true) : visible_{visible}
   {
   };
 
   virtual void OutputToStream(std::ostream&) = 0;
 
 private:
-  bool hide_;
+  bool visible_;
 
 };
 

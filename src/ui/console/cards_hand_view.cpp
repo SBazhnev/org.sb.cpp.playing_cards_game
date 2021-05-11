@@ -15,7 +15,7 @@ namespace playingcards {
 
 void CardsHandView::OutputToStream(std::ostream& output_stream)
 {
-  if (!this->IsHide()) {
+  if (this->IsVisible()) {
     std::stringstream top_bottom_border;
     std::stringstream side_border;
     std::stringstream ranks;

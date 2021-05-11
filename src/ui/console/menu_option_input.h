@@ -22,7 +22,7 @@ public:
   using ShrPtr = std::shared_ptr<MenuOptionInput>;
 
   explicit MenuOptionInput(std::istream& input_stream, const InputHandler& input_handler,
-      bool hide = false) : Widget{hide}, input_stream_(&input_stream),
+      bool visible = true) : Widget{visible}, input_stream_(&input_stream),
           input_handler_(input_handler)
   {
   }

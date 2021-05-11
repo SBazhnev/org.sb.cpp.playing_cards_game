@@ -12,7 +12,7 @@ namespace console {
 
 void MenuOptionInput::OutputToStream(std::ostream& output_stream)
 {
-  if (!this->IsHide()) {
+  if (this->IsVisible()) {
     unsigned short menu_option_index;
 
     output_stream << "Enter menu option number >> ";

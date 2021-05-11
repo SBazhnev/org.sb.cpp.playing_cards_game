@@ -25,7 +25,7 @@ public:
   using ShrPtr = std::shared_ptr<MenuOption>;
 
   explicit MenuOption(std::string_view title, const MenuOptionHandlerType& handler,
-      bool hide = false) : Widget{hide}, title_{title}, handler_(handler)
+      bool visible = true) : Widget{visible}, title_{title}, handler_(handler)
   {
   }
 

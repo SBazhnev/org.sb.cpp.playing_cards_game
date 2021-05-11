@@ -19,8 +19,8 @@ public:
   using WeakPtr = std::weak_ptr<WidgetsContainer>;
   using ShrPtr = std::shared_ptr<WidgetsContainer>;
 
-  explicit WidgetsContainer(unsigned int column = 1, bool hide = false) :
-        Widget{hide}, widgets_{}, column_{column}
+  explicit WidgetsContainer(unsigned int column = 1, bool visible = true) :
+        Widget{visible}, widgets_{}, column_{column}
   {
   }
 
@@ -40,7 +40,6 @@ protected:
   void OutputToStream(std::ostream&) override;
 
 private:
-//  std::vector<Widget::WeakPtr> widgets_;
   std::vector<Widget::ShrPtr> widgets_;
 
   unsigned int column_;

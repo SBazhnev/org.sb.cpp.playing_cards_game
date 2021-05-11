@@ -47,10 +47,10 @@ void GameView::Create(const MenuOptionHandlerType& exit, const MenuOptionHandler
   auto title_label = std::make_shared<Label>(title_text);
 
   // Status label
-  auto status_label = std::make_shared<Label>("",true);
+  auto status_label = std::make_shared<Label>("",false);
 
   // Game table
-  auto game_table = std::make_shared<WidgetsContainer>(1,true);
+  auto game_table = std::make_shared<WidgetsContainer>(1,false);
 
   // Common window
   widgets_.AddWidget(title_label);

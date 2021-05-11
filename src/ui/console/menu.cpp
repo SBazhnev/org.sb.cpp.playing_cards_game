@@ -19,7 +19,7 @@ void Menu::ExecuteOptionHandler(int index)
 
 void Menu::OutputToStream(std::ostream& output_stream)
 {
-  if (!this->IsHide()) {
+  if (this->IsVisible()) {
     for (auto option_itr = options_.begin(); option_itr != options_.end(); ++option_itr) {
       output_stream << (option_itr - options_.begin()) << ": " << *option_itr->get();
       if (option_itr != --options_.end()) {

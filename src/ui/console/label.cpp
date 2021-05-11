@@ -9,7 +9,7 @@ namespace console {
 
 void Label::OutputToStream(std::ostream& output_stream)
 {
-  if (!this->IsHide()) {
+  if (this->IsVisible()) {
     output_stream << text_;
   }
 }

@@ -19,7 +19,7 @@ public:
   using WeakPtr = std::weak_ptr<Label>;
   using ShrPtr = std::shared_ptr<Label>;
 
-  explicit Label(std::string_view text, bool hide = false) : Widget{hide}, text_(text)
+  explicit Label(std::string_view text, bool visible = true) : Widget{visible}, text_(text)
   {
   }
 

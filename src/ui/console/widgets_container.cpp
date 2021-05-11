@@ -19,11 +19,11 @@ void WidgetsContainer::Clear()
 
 void WidgetsContainer::OutputToStream(std::ostream& output_stream)
 {
-  if (!this->IsHide()) {
+  if (this->IsVisible()) {
     unsigned int column_index = 0;
 
     for (auto& widget : widgets_) {
-      if (!widget->IsHide()) {
+      if (widget->IsVisible()) {
         output_stream << *widget.get();
 
         if (++column_index == column_) {

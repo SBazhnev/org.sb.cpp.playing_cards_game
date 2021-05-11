@@ -14,7 +14,7 @@ void MenuOption::HandlerExecute()
 
 void MenuOption::OutputToStream(std::ostream& output)
 {
-  if (!this->IsHide())
+  if (this->IsVisible())
     output << title_;
 }
 
