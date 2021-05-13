@@ -5,6 +5,7 @@
 #include <ui/console/menu.h>
 
 #include <cassert>
+#include <stdexcept>
 #include <iterator>
 
 namespace ui {
@@ -12,7 +13,8 @@ namespace console {
 
 void Menu::ExecuteOptionHandler(std::size_t index)
 {
-  assert(index <= options_.size()-1 && "Index out of range");
+  if (index > options_.size()-1)
+    throw std::out_of_range("Index out of range");
 
   options_[index].get()->HandlerExecute();
 }

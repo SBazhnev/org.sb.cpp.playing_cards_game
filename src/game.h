@@ -5,11 +5,15 @@
 #ifndef GAME_H_
 #define GAME_H_
 
+#include "ui/console/game_view.h"
+
 namespace playingcards {
 
 class Game {
 public:
-  Game() = default;
+  Game() : game_view_{}
+  {
+  }
 
   ~Game() = default;
 
@@ -22,9 +26,14 @@ public:
   void Run();
 
 private:
+  void ShowGameView();
+
   void ModeSimpleRun();
   void ModeTwoPlayersRun();
   void Exit();
+
+private:
+  ui::console::playingcards::GameView game_view_;
 
 };
 

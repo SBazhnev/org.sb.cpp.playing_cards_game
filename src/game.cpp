@@ -5,32 +5,48 @@
 #include "game.h"
 
 #include <iostream>
-
-#include "ui/console/game_view.h"
+#include <stdexcept>
 
 namespace playingcards {
 
+void Game::ShowGameView()
+{
+  try {
+    std::cout << '\n' << game_view_;
+  }
+  catch (std::exception& e) {
+    game_view_.SetStatusLabelText(e.what());
+
+    ShowGameView();
+  }
+  catch (...) {
+    std::cout << "Unknown error! Exit." << "\n";
+  }
+}
+
 void Game::Run()
 {
-  ui::console::playingcards::GameView game_view{};
-
   ui::console::MenuOptionHandlerType exit_handler = std::bind(&Game::Exit,this);
   ui::console::MenuOptionHandlerType simple_mode_handler = std::bind(&Game::ModeSimpleRun,this);
   ui::console::MenuOptionHandlerType two_players_mode_handler = std::bind(&Game::ModeTwoPlayersRun,this);
 
-  game_view.Create(exit_handler,simple_mode_handler,two_players_mode_handler,std::cin);
+  game_view_.Create(exit_handler,simple_mode_handler,two_players_mode_handler,std::cin);
 
-  std::cout << game_view;
+  ShowGameView();
 }
 
 void Game::ModeSimpleRun()
 {
-  std::cout << "Simple mode \n";
+  game_view_.SetStatusLabelText("Simple mode");
+
+  ShowGameView();
 }
 
 void Game::ModeTwoPlayersRun()
 {
-  std::cout << "Two players mode \n";
+  game_view_.SetStatusLabelText("Two players mode");
+
+  ShowGameView();
 }
 
 void Game::Exit()

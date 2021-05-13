@@ -7,7 +7,7 @@
 #include <memory>
 #include <string>
 
-#include "ui/console/label.h"
+
 #include "ui/console/menu.h"
 
 namespace ui {
@@ -46,7 +46,7 @@ void GameView::Create(const MenuOptionHandlerType& exit, const MenuOptionHandler
   auto title_label = std::make_shared<Label>(title_text);
 
   // Status label
-  auto status_label = std::make_shared<Label>("",false);
+  status_label_ = std::make_shared<Label>("",false);
 
   // Game table
   auto game_table = std::make_shared<WidgetsContainer>(1,false);
@@ -54,9 +54,21 @@ void GameView::Create(const MenuOptionHandlerType& exit, const MenuOptionHandler
   // Common window
   widgets_.AddWidget(title_label);
   widgets_.AddWidget(common_menu);
-  widgets_.AddWidget(status_label);
+  widgets_.AddWidget(status_label_);
   widgets_.AddWidget(game_table);
   widgets_.AddWidget(menu_option_input);
+}
+
+void GameView::SetStatusLabelText(std::string_view text)
+{
+  status_label_->SetText(text);
+  status_label_->SetVisible();
+}
+
+void GameView::CleanStatusLabelText()
+{
+  status_label_->SetText("");
+  status_label_->SetInvisible();
 }
 
 } // namespace playingcards
