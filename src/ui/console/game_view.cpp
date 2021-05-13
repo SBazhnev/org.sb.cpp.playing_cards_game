@@ -5,20 +5,12 @@
 #include "ui/console/game_view.h"
 
 #include <memory>
-#include <string>
-
 
 #include "ui/console/menu.h"
 
 namespace ui {
 namespace console {
 namespace playingcards {
-
-const std::string title_text = "The simple playing cards game";
-
-const std::string exit_menu_option_text = "Exit";
-const std::string simple_mode_menu_option_text = "Simple mode";
-const std::string two_players_mode_menu_option_text = "Two players";
 
 void GameView::OutputToStream(std::ostream& output_stream)
 {
@@ -29,9 +21,9 @@ void GameView::Create(const MenuOptionHandlerType& exit, const MenuOptionHandler
     const MenuOptionHandlerType& two_players_mode, std::istream& input_stream)
 {
   // Common menu
-  auto exit_menu_option = std::make_shared<MenuOption>(exit_menu_option_text,exit);
-  auto simple_mode_menu_option = std::make_shared<MenuOption>(simple_mode_menu_option_text,simple_mode);
-  auto two_players_mode_menu_option = std::make_shared<MenuOption>(two_players_mode_menu_option_text,two_players_mode);
+  auto exit_menu_option = std::make_shared<MenuOption>(k_exit_menu_option_text,exit);
+  auto simple_mode_menu_option = std::make_shared<MenuOption>(k_simple_mode_menu_option_text,simple_mode);
+  auto two_players_mode_menu_option = std::make_shared<MenuOption>(k_two_players_mode_menu_option_text,two_players_mode);
 
   auto common_menu = std::make_shared<Menu>();
 
@@ -43,7 +35,7 @@ void GameView::Create(const MenuOptionHandlerType& exit, const MenuOptionHandler
   auto menu_option_input = std::make_shared<MenuOptionInput>(input_stream,common_menu);
 
   // Title
-  auto title_label = std::make_shared<Label>(title_text);
+  auto title_label = std::make_shared<Label>(k_title_text);
 
   // Status label
   status_label_ = std::make_shared<Label>("",false);

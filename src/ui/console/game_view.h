@@ -18,6 +18,12 @@ namespace ui {
 namespace console {
 namespace playingcards {
 
+inline constexpr std::string_view k_title_text = "The simple playing cards game";
+
+inline constexpr std::string_view k_exit_menu_option_text = "Exit";
+inline constexpr std::string_view k_simple_mode_menu_option_text = "Simple mode";
+inline constexpr std::string_view k_two_players_mode_menu_option_text = "Two players";
+
 class GameView : public Widget {
 public:
   GameView() : widgets_(), status_label_{nullptr}

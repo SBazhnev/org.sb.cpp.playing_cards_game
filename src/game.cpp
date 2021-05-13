@@ -7,6 +7,9 @@
 #include <iostream>
 #include <stdexcept>
 
+using namespace ui::console;
+using namespace ui::console::playingcards;
+
 namespace playingcards {
 
 void Game::ShowGameView()
@@ -26,9 +29,9 @@ void Game::ShowGameView()
 
 void Game::Run()
 {
-  ui::console::MenuOptionHandlerType exit_handler = std::bind(&Game::Exit,this);
-  ui::console::MenuOptionHandlerType simple_mode_handler = std::bind(&Game::ModeSimpleRun,this);
-  ui::console::MenuOptionHandlerType two_players_mode_handler = std::bind(&Game::ModeTwoPlayersRun,this);
+  MenuOptionHandlerType exit_handler = std::bind(&Game::Exit,this);
+  MenuOptionHandlerType simple_mode_handler = std::bind(&Game::ModeSimpleRun,this);
+  MenuOptionHandlerType two_players_mode_handler = std::bind(&Game::ModeTwoPlayersRun,this);
 
   game_view_.Create(exit_handler,simple_mode_handler,two_players_mode_handler,std::cin);
 
@@ -37,14 +40,14 @@ void Game::Run()
 
 void Game::ModeSimpleRun()
 {
-  game_view_.SetStatusLabelText("Simple mode");
+  game_view_.SetStatusLabelText(k_simple_mode_menu_option_text);
 
   ShowGameView();
 }
 
 void Game::ModeTwoPlayersRun()
 {
-  game_view_.SetStatusLabelText("Two players mode");
+  game_view_.SetStatusLabelText(k_two_players_mode_menu_option_text);
 
   ShowGameView();
 }
