@@ -6,6 +6,9 @@
 #define PLAYINGCARDS_POKER_COMBINATIONS_H_
 
 #include <cstdint>
+#include <string>
+
+namespace playingcards {
 
 enum class PokerCombination : std::uint16_t {
   HighCard,
@@ -19,5 +22,9 @@ enum class PokerCombination : std::uint16_t {
   StraightFlush,
   RoyalFlush
 };
+
+std::string GetPokerCombinationText(const PokerCombination& poker_combination);
+
+} // namespace playingcards
 
 #endif // PLAYINGCARDS_POKER_COMBINATIONS_H_
