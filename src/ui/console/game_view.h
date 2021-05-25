@@ -8,6 +8,8 @@
 #include <istream>
 #include <string_view>
 
+#include "playingcards/hand.h"
+
 #include "ui/console/label.h"
 #include "ui/console/menu_option.h"
 #include "ui/console/menu_option_input.h"
@@ -26,7 +28,7 @@ inline constexpr std::string_view k_two_players_mode_menu_option_text = "Two pla
 
 class GameView : public Widget {
 public:
-  GameView() : widgets_(), status_label_{nullptr}
+  GameView() : widgets_(), game_table_{nullptr}, status_label_{nullptr}
   {
   }
 
@@ -44,6 +46,8 @@ public:
   void SetStatusLabelText(std::string_view text);
   void CleanStatusLabelText();
 
+  void SetGameTableSimpleMode(const ::playingcards::Hand::ShrPtr& hand);
+
 protected:
   void OutputToStream(std::ostream&) override;
 
@@ -52,6 +56,8 @@ private:
   using ShrPtr = std::shared_ptr<Widget>;
 
   WidgetsContainer widgets_;
+
+  WidgetsContainer::ShrPtr game_table_;
 
   Label::ShrPtr status_label_;
 

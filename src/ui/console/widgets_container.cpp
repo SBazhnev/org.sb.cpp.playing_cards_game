@@ -27,7 +27,7 @@ void WidgetsContainer::OutputToStream(std::ostream& output_stream)
         output_stream << *widget.get();
 
         if (++column_index == column_) {
-          output_stream << std::endl;
+          output_stream << '\n';
           column_index = 0;
         }
         else {

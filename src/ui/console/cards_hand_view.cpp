@@ -28,14 +28,14 @@ void CardsHandView::OutputToStream(std::ostream& output_stream)
       suits << "| " << std::left << std::setw(9) << ::playingcards::GetCardSuitText(card->suit)  << "|";
     }
 
-    output_stream << top_bottom_border.rdbuf()  << '\n';
-    output_stream << side_border.rdbuf()        << '\n';
-    output_stream << side_border.rdbuf()        << '\n';
-    output_stream << ranks.rdbuf()              << "\n";
-    output_stream << suits.rdbuf()              << "\n";
-    output_stream << side_border.rdbuf()        << '\n';
-    output_stream << side_border.rdbuf()        << '\n';
-    output_stream << top_bottom_border.rdbuf();
+    output_stream << top_bottom_border.str()  << '\n';
+    output_stream << side_border.str()        << '\n';
+    output_stream << side_border.str()        << '\n';
+    output_stream << ranks.str()              << "\n";
+    output_stream << suits.str()              << "\n";
+    output_stream << side_border.str()        << '\n';
+    output_stream << side_border.str()        << '\n';
+    output_stream << top_bottom_border.str();
   }
 }
 

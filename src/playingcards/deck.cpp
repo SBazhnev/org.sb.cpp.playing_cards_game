@@ -52,7 +52,7 @@ void Deck::Generate()
       (size_ == DeckSize::Cards36) ? CardRank::Six : CardRank::Two);
 
   for (auto& suit : k_card_suits) {
-    for (auto& rank = start_rank; rank < k_card_ranks.end(); ++rank) {
+    for (auto rank = start_rank; rank < k_card_ranks.end(); ++rank) {
       container_.emplace_back(std::make_shared<Card>(suit,*rank));
     }
   }

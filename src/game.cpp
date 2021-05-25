@@ -7,6 +7,9 @@
 #include <iostream>
 #include <stdexcept>
 
+#include "playingcards/deck.h"
+#include "playingcards/hand.h"
+
 using namespace ui::console;
 using namespace ui::console::playingcards;
 
@@ -22,7 +25,7 @@ void Game::ShowGameView()
 
     ShowGameView();
   }
-  catch (...) {
+  catch (...) { // TODO move to main()
     std::cout << "Unknown error! Exit." << "\n";
   }
 }
@@ -40,7 +43,17 @@ void Game::Run()
 
 void Game::ModeSimpleRun()
 {
-  game_view_.SetStatusLabelText(k_simple_mode_menu_option_text);
+  Deck deck{};
+
+  deck.Shuffle();
+
+  auto hand = std::make_shared<Hand>();
+
+  for (std::size_t i = 0; i < 5; ++i) {
+    hand->AddCard(deck.PopTopCard());
+  }
+
+  game_view_.SetGameTableSimpleMode(hand);
 
   ShowGameView();
 }
