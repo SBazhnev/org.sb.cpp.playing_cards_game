@@ -7,6 +7,7 @@
 #include <iostream>
 #include <stdexcept>
 
+#include "player.h"
 #include "playingcards/deck.h"
 #include "playingcards/hand.h"
 
@@ -60,7 +61,23 @@ void Game::ModeSimpleRun()
 
 void Game::ModeTwoPlayersRun()
 {
-  game_view_.SetStatusLabelText(k_two_players_mode_menu_option_text);
+  Deck deck{};
+
+  deck.Shuffle();
+
+  auto user_hand = std::make_shared<Hand>();
+  auto comp_hand = std::make_shared<Hand>();
+
+  for (std::size_t i = 0; i < 5; ++i) {
+    // TODO implement random card order deal
+    user_hand->AddCard(deck.PopTopCard());
+    comp_hand->AddCard(deck.PopTopCard());
+  }
+
+  Player user{"User",user_hand};
+  Player comp{"Comp",comp_hand};
+
+  game_view_.SetGameTableTwoPlayersMode(user,comp);
 
   ShowGameView();
 }

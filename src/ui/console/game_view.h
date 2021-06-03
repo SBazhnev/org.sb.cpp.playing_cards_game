@@ -8,6 +8,7 @@
 #include <istream>
 #include <string_view>
 
+#include "player.h"
 #include "playingcards/hand.h"
 
 #include "ui/console/label.h"
@@ -47,6 +48,8 @@ public:
   void CleanStatusLabelText();
 
   void SetGameTableSimpleMode(const ::playingcards::Hand::ShrPtr& hand);
+  void SetGameTableTwoPlayersMode(const ::playingcards::Player& player_1,
+      const ::playingcards::Player& player_2);
 
 protected:
   void OutputToStream(std::ostream&) override;

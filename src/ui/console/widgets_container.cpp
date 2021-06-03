@@ -4,6 +4,8 @@
 
 #include <ui/console/widgets_container.h>
 
+#include <typeindex>
+
 namespace ui {
 namespace console {
 
@@ -26,12 +28,14 @@ void WidgetsContainer::OutputToStream(std::ostream& output_stream)
       if (widget->IsVisible()) {
         output_stream << *widget.get();
 
-        if (++column_index == column_) {
-          output_stream << '\n';
-          column_index = 0;
-        }
-        else {
-          output_stream << " ";
+        if (std::type_index(typeid(*widget.get())) != std::type_index(typeid(WidgetsContainer))) {
+          if (++column_index == column_) {
+            output_stream << '\n';
+            column_index = 0;
+          }
+          else {
+            output_stream << " ";
+          }
         }
       }
     }

@@ -6,6 +6,7 @@
 #define PLAYER_H_
 
 #include <string>
+#include <string_view>
 
 #include "playingcards/hand.h"
 
@@ -13,7 +14,7 @@ namespace playingcards {
 
 class Player {
 public:
-  Player(const std::string& name = std::string(), const Hand& hand = Hand()) :
+  explicit Player(std::string_view name = std::string(), const Hand::ShrPtr& hand = nullptr) :
     name_(name), hand_(hand)
   {
   }
@@ -26,12 +27,12 @@ public:
   Player(Player&&) = default;
   Player& operator=(Player&&) = default;
 
-  const Hand& GetHand() const
+  const Hand::ShrPtr& GetHand() const
   {
     return hand_;
   }
 
-  void SetHand(const Hand& hand)
+  void SetHand(const Hand::ShrPtr& hand)
   {
     hand_ = hand;
   }
@@ -41,14 +42,14 @@ public:
     return name_;
   }
 
-  void SetName(const std::string& name)
+  void SetName(std::string_view name)
   {
     name_ = name;
   }
 
 private:
   std::string name_;
-  Hand hand_;
+  Hand::ShrPtr hand_;
 
 };
 

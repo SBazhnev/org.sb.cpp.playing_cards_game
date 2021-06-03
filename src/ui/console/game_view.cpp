@@ -73,6 +73,8 @@ void GameView::SetGameTableSimpleMode(const ::playingcards::Hand::ShrPtr& hand)
   auto hand_combination_title = std::make_shared<Label>("Combination:");
   auto hand_combination_label = std::make_shared<Label>(::playingcards::GetPokerCombinationText(hand->GetPokerCombination()));
 
+  SetStatusLabelText(k_simple_mode_menu_option_text);
+
   game_table_->Clear();
 
   game_table_->AddWidget(player_name_label);
@@ -81,8 +83,54 @@ void GameView::SetGameTableSimpleMode(const ::playingcards::Hand::ShrPtr& hand)
   game_table_->AddWidget(hand_combination_label);
 
   game_table_->SetVisible();
+}
 
-  SetStatusLabelText(k_simple_mode_menu_option_text);
+void GameView::SetGameTableTwoPlayersMode(const ::playingcards::Player& player_1,
+    const ::playingcards::Player& player_2)
+{
+  auto player_1_name_label = std::make_shared<Label>(player_1.GetName());
+  auto player_1_hand_view = std::make_shared<CardsHandView>(player_1.GetHand());
+  auto player_1_combination_label = std::make_shared<Label>(
+      ::playingcards::GetPokerCombinationText(player_1.GetHand()->GetPokerCombination()));
+
+  auto player_2_name_label = std::make_shared<Label>(player_2.GetName());
+  auto player_2_hand_view = std::make_shared<CardsHandView>(player_2.GetHand());
+  auto player_2_combination_label = std::make_shared<Label>(
+      ::playingcards::GetPokerCombinationText(player_2.GetHand()->GetPokerCombination()));
+
+  auto combination_text_label = std::make_shared<Label>("Combination:");
+
+  std::string winner_text = "Winner: ";
+
+  if (*player_1.GetHand() == *player_2.GetHand()) {
+    winner_text += "draw!";
+  }
+  else if (*player_1.GetHand() < *player_2.GetHand()) {
+    winner_text += player_2.GetName() + "!";
+  }
+  else {
+    winner_text += player_1.GetName() + "!";
+  }
+
+  auto winner_label = std::make_shared<Label>(winner_text);
+
+  SetStatusLabelText(k_two_players_mode_menu_option_text);
+
+  game_table_->Clear();
+
+  game_table_->AddWidget(player_1_name_label);
+  game_table_->AddWidget(player_1_hand_view);
+  game_table_->AddWidget(combination_text_label);
+  game_table_->AddWidget(player_1_combination_label);
+
+  game_table_->AddWidget(player_2_name_label);
+  game_table_->AddWidget(player_2_hand_view);
+  game_table_->AddWidget(combination_text_label);
+  game_table_->AddWidget(player_2_combination_label);
+
+  game_table_->AddWidget(winner_label);
+
+  game_table_->SetVisible();
 }
 
 } // namespace playingcards
