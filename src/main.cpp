@@ -3,12 +3,21 @@
 //
 
 #include <iostream>
+#include <locale>
 
 #include "game.h"
 
-int main(int argc, char **argv) {
-  playingcards::Game game{};
-  game.Run();
+int main() {
+  std::locale::global(std::locale(""));
+
+  try {
+    playingcards::Game game{};
+
+    game.Run();
+  }
+  catch (...) {
+    std::cout << "Unknown error! Exit." << "\n";
+  }
 
   return 0;
 }

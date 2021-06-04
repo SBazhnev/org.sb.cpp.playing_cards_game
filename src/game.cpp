@@ -26,9 +26,6 @@ void Game::ShowGameView()
 
     ShowGameView();
   }
-  catch (...) { // TODO move to main()
-    std::cout << "Unknown error! Exit." << "\n";
-  }
 }
 
 void Game::Run()
