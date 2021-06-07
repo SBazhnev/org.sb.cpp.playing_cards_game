@@ -6,6 +6,7 @@
 #define PLAYINGCARDS_DECK_H_
 
 #include <cstdint>
+#include <memory>
 #include <vector>
 
 #include "playingcards/card.h"
@@ -20,6 +21,10 @@ enum class DeckSize : std::size_t {
 
 class Deck {
 public:
+  using ShrPtr = std::shared_ptr<Deck>;
+  using WeakPtr = std::weak_ptr<Deck>;
+  using UnqPtr = std::unique_ptr<Deck>;
+
   explicit Deck(DeckSize size = DeckSize::Cards52);
 
   ~Deck() = default;

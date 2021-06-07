@@ -5,15 +5,17 @@
 #ifndef GAME_H_
 #define GAME_H_
 
+#include <iostream>
+
+#include "playingcards/deck.h"
+
 #include "ui/console/game_view.h"
 
 namespace playingcards {
 
 class Game {
 public:
-  Game() : game_view_{}
-  {
-  }
+  explicit Game(std::ostream& out = std::cout, std::istream& in = std::cin);
 
   ~Game() = default;
 
@@ -26,6 +28,8 @@ public:
   void Run();
 
 private:
+  void Configure();
+
   void ShowGameView();
 
   void ModeSimpleRun();
@@ -33,7 +37,12 @@ private:
   void Exit();
 
 private:
-  ui::console::playingcards::GameView game_view_;
+  std::ostream* out_;
+  std::istream* in_;
+
+  ui::console::playingcards::GameView::UniqPtr game_view_;
+
+  Deck::UnqPtr deck_;
 
 };
 

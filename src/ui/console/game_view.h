@@ -6,6 +6,7 @@
 #define SRC_UI_CONSOLE_GAME_VIEW_H_
 
 #include <istream>
+#include <memory>
 #include <string_view>
 
 #include "player.h"
@@ -29,6 +30,10 @@ inline constexpr std::string_view k_two_players_mode_menu_option_text = "Two pla
 
 class GameView : public Widget {
 public:
+  using WeakPtr = std::weak_ptr<GameView>;
+  using ShrPtr = std::shared_ptr<GameView>;
+  using UniqPtr = std::unique_ptr<GameView>;
+
   GameView() : widgets_(), game_table_{nullptr}, status_label_{nullptr}
   {
   }
@@ -55,9 +60,6 @@ protected:
   void OutputToStream(std::ostream&) override;
 
 private:
-  using WeakPtr = std::weak_ptr<Widget>;
-  using ShrPtr = std::shared_ptr<Widget>;
-
   WidgetsContainer widgets_;
 
   WidgetsContainer::ShrPtr game_table_;
