@@ -88,28 +88,28 @@ void GameView::SetGameTableSimpleMode(const ::playingcards::Hand::ShrPtr& hand)
 void GameView::SetGameTableTwoPlayersMode(const ::playingcards::Player& player_1,
     const ::playingcards::Player& player_2)
 {
-  auto player_1_name_label = std::make_shared<Label>(player_1.GetName());
-  auto player_1_hand_view = std::make_shared<CardsHandView>(player_1.GetHand());
+  auto player_1_name_label = std::make_shared<Label>(player_1.name);
+  auto player_1_hand_view = std::make_shared<CardsHandView>(player_1.hand);
   auto player_1_combination_label = std::make_shared<Label>(
-      ::playingcards::GetPokerCombinationText(player_1.GetHand()->GetPokerCombination()));
+      ::playingcards::GetPokerCombinationText(player_1.hand->GetPokerCombination()));
 
-  auto player_2_name_label = std::make_shared<Label>(player_2.GetName());
-  auto player_2_hand_view = std::make_shared<CardsHandView>(player_2.GetHand());
+  auto player_2_name_label = std::make_shared<Label>(player_2.name);
+  auto player_2_hand_view = std::make_shared<CardsHandView>(player_2.hand);
   auto player_2_combination_label = std::make_shared<Label>(
-      ::playingcards::GetPokerCombinationText(player_2.GetHand()->GetPokerCombination()));
+      ::playingcards::GetPokerCombinationText(player_2.hand->GetPokerCombination()));
 
   auto combination_text_label = std::make_shared<Label>("Combination:");
 
   std::string winner_text = "Winner: ";
 
-  if (*player_1.GetHand() == *player_2.GetHand()) {
+  if (*player_1.hand == *player_2.hand) {
     winner_text += "draw!";
   }
-  else if (*player_1.GetHand() < *player_2.GetHand()) {
-    winner_text += player_2.GetName() + "!";
+  else if (*player_1.hand < *player_2.hand) {
+    winner_text += player_2.name + "!";
   }
   else {
-    winner_text += player_1.GetName() + "!";
+    winner_text += player_1.name + "!";
   }
 
   auto winner_label = std::make_shared<Label>(winner_text);

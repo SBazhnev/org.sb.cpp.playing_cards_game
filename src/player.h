@@ -12,10 +12,12 @@
 
 namespace playingcards {
 
-class Player {
-public:
-  explicit Player(std::string_view name = std::string(), const Hand::ShrPtr& hand = nullptr) :
-    name_(name), hand_(hand)
+struct Player {
+  std::string name;
+  Hand::ShrPtr hand;
+
+  explicit Player(std::string_view name_ = std::string(), const Hand::ShrPtr& hand_ = nullptr) :
+    name{name_}, hand{hand_}
   {
   }
 
@@ -26,30 +28,6 @@ public:
 
   Player(Player&&) = default;
   Player& operator=(Player&&) = default;
-
-  const Hand::ShrPtr& GetHand() const
-  {
-    return hand_;
-  }
-
-  void SetHand(const Hand::ShrPtr& hand)
-  {
-    hand_ = hand;
-  }
-
-  const std::string& GetName() const
-  {
-    return name_;
-  }
-
-  void SetName(std::string_view name)
-  {
-    name_ = name;
-  }
-
-private:
-  std::string name_;
-  Hand::ShrPtr hand_;
 
 };
 
