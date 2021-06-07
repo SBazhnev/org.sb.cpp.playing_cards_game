@@ -26,7 +26,7 @@ void Hand::AddCard(const Card::ShrPtr& card)
     poker_combination_ = CalculatePokerCombination();
 }
 
-void Hand::CountAndSortRanks(CardRank rank)
+void Hand::CountAndSortRanks(Card::Rank rank)
 {
   auto rank_count = std::find_if(
       ranks_counts_on_hand_.begin(),
@@ -53,9 +53,9 @@ void Hand::CountAndSortRanks(CardRank rank)
 
   // If combination is "a wheel"
   if (ranks_counts_on_hand_.size() == k_hand_size &&
-      ranks_counts_on_hand_.begin()->first == CardRank::Ace &&
-      (ranks_counts_on_hand_.begin() + 1)->first == CardRank::Five) {
-    ranks_counts_on_hand_.begin()->first = CardRank::One;
+      ranks_counts_on_hand_.begin()->first == Card::Rank::Ace &&
+      (ranks_counts_on_hand_.begin() + 1)->first == Card::Rank::Five) {
+    ranks_counts_on_hand_.begin()->first = Card::Rank::One;
     std::sort(
         ranks_counts_on_hand_.begin(),
         ranks_counts_on_hand_.end(),
@@ -92,7 +92,7 @@ PokerCombination Hand::CalculatePokerCombination()
 
   bool is_straight = (ranks_counts_on_hand_.size() == k_hand_size && distance_ranks == 4);
 
-  if (is_flush && is_straight && ranks_counts_on_hand_.begin()->first == CardRank::Ace)
+  if (is_flush && is_straight && ranks_counts_on_hand_.begin()->first == Card::Rank::Ace)
     return PokerCombination::RoyalFlush;
 
   if (is_flush && is_straight)

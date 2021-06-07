@@ -6,88 +6,88 @@
 
 namespace playingcards {
 
-const std::vector<CardSuit> k_card_suits{
-  CardSuit::Clubs,
-  CardSuit::Spades,
-  CardSuit::Diamonds,
-  CardSuit::Hearts
+const std::vector<Card::Suit> k_card_suits_store{
+  Card::Suit::Clubs,
+  Card::Suit::Spades,
+  Card::Suit::Diamonds,
+  Card::Suit::Hearts
 };
 
-const std::vector<CardRank> k_card_ranks{
-  CardRank::Two,
-  CardRank::Three,
-  CardRank::Four,
-  CardRank::Five,
-  CardRank::Six,
-  CardRank::Seven,
-  CardRank::Eight,
-  CardRank::Nine,
-  CardRank::Ten,
-  CardRank::Jack,
-  CardRank::Queen,
-  CardRank::King,
-  CardRank::Ace
+const std::vector<Card::Rank> k_card_ranks_store{
+  Card::Rank::Two,
+  Card::Rank::Three,
+  Card::Rank::Four,
+  Card::Rank::Five,
+  Card::Rank::Six,
+  Card::Rank::Seven,
+  Card::Rank::Eight,
+  Card::Rank::Nine,
+  Card::Rank::Ten,
+  Card::Rank::Jack,
+  Card::Rank::Queen,
+  Card::Rank::King,
+  Card::Rank::Ace
 };
 
-std::string GetCardSuitText(const CardSuit& suit)
+std::string GetCardSuitText(Card::Suit suit)
 {
-  if (suit == CardSuit::Clubs)
+  if (suit == Card::Suit::Clubs)
     return "clubs";
 
-  if (suit == CardSuit::Spades)
+  if (suit == Card::Suit::Spades)
     return "spades";
 
-  if (suit == CardSuit::Diamonds)
+  if (suit == Card::Suit::Diamonds)
     return "diamonds";
 
-  if (suit == CardSuit::Hearts)
+  if (suit == Card::Suit::Hearts)
     return "hearts";
 
   return std::string();
 }
 
-std::string GetCardRankText(const CardRank& rank)
+std::string GetCardRankText(Card::Rank rank)
 {
-  if (rank == CardRank::One)
+  if (rank == Card::Rank::One)
     return "one";
 
-  if (rank == CardRank::Two)
+  if (rank == Card::Rank::Two)
     return "two";
 
-  if (rank == CardRank::Three)
+  if (rank == Card::Rank::Three)
     return "three";
 
-  if (rank == CardRank::Four)
+  if (rank == Card::Rank::Four)
     return "four";
 
-  if (rank == CardRank::Five)
+  if (rank == Card::Rank::Five)
     return "five";
 
-  if (rank == CardRank::Six)
+  if (rank == Card::Rank::Six)
     return "six";
 
-  if (rank == CardRank::Seven)
+  if (rank == Card::Rank::Seven)
     return "seven";
 
-  if (rank == CardRank::Eight)
+  if (rank == Card::Rank::Eight)
     return "eight";
 
-  if (rank == CardRank::Nine)
+  if (rank == Card::Rank::Nine)
     return "nine";
 
-  if (rank == CardRank::Ten)
+  if (rank == Card::Rank::Ten)
     return "ten";
 
-  if (rank == CardRank::Jack)
+  if (rank == Card::Rank::Jack)
     return "jack";
 
-  if (rank == CardRank::Queen)
+  if (rank == Card::Rank::Queen)
     return "queen";
 
-  if (rank == CardRank::King)
+  if (rank == Card::Rank::King)
     return "king";
 
-  if (rank == CardRank::Ace)
+  if (rank == Card::Rank::Ace)
     return "ace";
 
   return std::string();

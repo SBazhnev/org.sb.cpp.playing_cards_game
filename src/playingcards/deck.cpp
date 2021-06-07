@@ -48,11 +48,11 @@ void Deck::Generate()
 {
   container_.clear();
 
-  auto start_rank = std::find(k_card_ranks.begin(),k_card_ranks.end(),
-      (size_ == DeckSize::Cards36) ? CardRank::Six : CardRank::Two);
+  auto start_rank = std::find(k_card_ranks_store.begin(),k_card_ranks_store.end(),
+      (size_ == DeckSize::Cards36) ? Card::Rank::Six : Card::Rank::Two);
 
-  for (auto& suit : k_card_suits) {
-    for (auto rank = start_rank; rank < k_card_ranks.end(); ++rank) {
+  for (auto& suit : k_card_suits_store) {
+    for (auto rank = start_rank; rank < k_card_ranks_store.end(); ++rank) {
       container_.emplace_back(std::make_shared<Card>(suit,*rank));
     }
   }

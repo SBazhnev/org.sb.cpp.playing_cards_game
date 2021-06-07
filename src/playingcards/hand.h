@@ -38,7 +38,7 @@ public:
 
   void Clear();
 
-  const CardsContainer& GetCards() const
+  const CardsStore& GetCards() const
   {
     return cards_container_;
   }
@@ -52,20 +52,20 @@ public:
 private:
   // Count the number of ranks in the hand and then sort it
   // first by number then by rank
-  void CountAndSortRanks(CardRank rank);
+  void CountAndSortRanks(Card::Rank rank);
 
   PokerCombination CalculatePokerCombination();
 
 private:
-  CardsContainer cards_container_;
+  CardsStore cards_container_;
 
   PokerCombination poker_combination_;
 
   // For counting the number of different suits in the hand
-  std::set<CardSuit> suits_on_hand_;
+  std::set<Card::Suit> suits_on_hand_;
 
   // For counting the number of different ranks in the hand
-  std::vector<std::pair<CardRank,std::size_t>> ranks_counts_on_hand_;
+  std::vector<std::pair<Card::Rank,std::size_t>> ranks_counts_on_hand_;
 
 };
 

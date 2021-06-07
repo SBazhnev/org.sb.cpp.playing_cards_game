@@ -50,11 +50,11 @@ private:
 private:
   DeckSize size_;
 
-  CardsContainer container_;
+  CardsStore container_;
 
   // The deal of cards is simulated using
   // a pointer to the current container element
-  CardsContainer::iterator top_card_;
+  CardsStore::iterator top_card_;
 
 };
 
