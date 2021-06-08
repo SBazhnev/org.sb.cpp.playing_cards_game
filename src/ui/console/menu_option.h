@@ -17,17 +17,26 @@
 namespace ui {
 namespace console {
 
-using MenuOptionHandlerType = std::function<void()>;
-
 class MenuOption : public Widget {
 public:
   using WeakPtr = std::weak_ptr<MenuOption>;
   using ShrPtr = std::shared_ptr<MenuOption>;
+  using UnqPtr = std::unique_ptr<MenuOption>;
 
-  explicit MenuOption(std::string_view title, const MenuOptionHandlerType& handler,
+  using HandlerType = std::function<void()>;
+
+  explicit MenuOption(std::string_view title, const MenuOption::HandlerType& handler,
       bool visible = true) : Widget{visible}, title_{title}, handler_(handler)
   {
   }
+
+  ~MenuOption() = default;
+
+  MenuOption(const MenuOption&) = default;
+  MenuOption& operator=(const MenuOption&) = default;
+
+  MenuOption(MenuOption&&) = default;
+  MenuOption& operator=(MenuOption&&) = default;
 
   void HandlerExecute();
 
@@ -36,7 +45,7 @@ protected:
 
 private:
   std::string title_;
-  MenuOptionHandlerType handler_;
+  MenuOption::HandlerType handler_;
 
 };
 

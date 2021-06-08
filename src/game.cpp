@@ -38,9 +38,9 @@ void Game::Run()
 
 void Game::Configure()
 {
-  MenuOptionHandlerType exit_handler = std::bind(&Game::Exit,this);
-  MenuOptionHandlerType simple_mode_handler = std::bind(&Game::ModeSimpleRun,this);
-  MenuOptionHandlerType two_players_mode_handler = std::bind(&Game::ModeTwoPlayersRun,this);
+  MenuOption::HandlerType exit_handler = std::bind(&Game::Exit,this);
+  MenuOption::HandlerType simple_mode_handler = std::bind(&Game::ModeSimpleRun,this);
+  MenuOption::HandlerType two_players_mode_handler = std::bind(&Game::ModeTwoPlayersRun,this);
 
   game_view_->Create(exit_handler,simple_mode_handler,two_players_mode_handler,*in_);
 }

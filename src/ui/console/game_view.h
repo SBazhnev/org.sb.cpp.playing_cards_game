@@ -46,8 +46,8 @@ public:
   GameView(GameView&&) = default;
   GameView& operator=(GameView&&) = default;
   
-  void Create(const MenuOptionHandlerType& exit, const MenuOptionHandlerType& simple_mode,
-      const MenuOptionHandlerType& two_players_mode, std::istream& input_stream);
+  void Create(const MenuOption::HandlerType& exit, const MenuOption::HandlerType& simple_mode,
+      const MenuOption::HandlerType& two_players_mode, std::istream& input_stream);
 
   void SetStatusLabelText(std::string_view text);
   void CleanStatusLabelText();

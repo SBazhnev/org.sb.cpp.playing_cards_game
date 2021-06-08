@@ -15,8 +15,8 @@ namespace ui {
 namespace console {
 namespace playingcards {
 
-void GameView::Create(const MenuOptionHandlerType& exit, const MenuOptionHandlerType& simple_mode,
-    const MenuOptionHandlerType& two_players_mode, std::istream& input_stream)
+void GameView::Create(const MenuOption::HandlerType& exit, const MenuOption::HandlerType& simple_mode,
+    const MenuOption::HandlerType& two_players_mode, std::istream& input_stream)
 {
   // Common menu
   auto exit_menu_option = std::make_shared<MenuOption>(k_exit_menu_option_text,exit);
