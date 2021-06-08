@@ -5,7 +5,6 @@
 #ifndef PLAYINGCARDS_DECK_H_
 #define PLAYINGCARDS_DECK_H_
 
-#include <cstdint>
 #include <memory>
 #include <vector>
 
@@ -13,19 +12,19 @@
 
 namespace playingcards {
 
-enum class DeckSize : std::size_t {
-  Cards36 = 36, // from Six to Ace
-  Cards52 = 52, // from Two to Ace
-  Cards54 = 54  // from Two to Ace + 2 Jokers
-};
-
 class Deck {
 public:
   using ShrPtr = std::shared_ptr<Deck>;
   using WeakPtr = std::weak_ptr<Deck>;
   using UnqPtr = std::unique_ptr<Deck>;
 
-  explicit Deck(DeckSize size = DeckSize::Cards52);
+  enum class Size : std::size_t {
+    Cards36 = 36, // from Six to Ace
+    Cards52 = 52, // from Two to Ace
+    Cards54 = 54  // from Two to Ace + 2 Jokers
+  };
+
+  explicit Deck(Deck::Size size = Deck::Size::Cards52);
 
   ~Deck() = default;
 
@@ -41,14 +40,14 @@ public:
 
   // Return the current top card and set the next element of
   // the container as the top card
-  Card::ShrPtr PopTopCard();
+  const Card::ShrPtr& PopTopCard();
 
 private:
   // Create deck
   void Generate();
 
 private:
-  DeckSize size_;
+  Deck::Size size_;
 
   CardsStore container_;
 
