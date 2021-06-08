@@ -14,37 +14,37 @@ inline constexpr std::size_t k_hand_size{5};
 
 void Hand::AddCard(const Card::ShrPtr& card)
 {
-  assert(cards_container_.size() <= k_hand_size && "The hand is already full!");
+  assert(cards_.size() <= k_hand_size && "The hand is already full!");
 
-  cards_container_.emplace_back(card);
+  cards_.emplace_back(card);
 
-  suits_on_hand_.emplace(card.get()->suit);
+  suits_.emplace(card.get()->suit);
 
   CountAndSortRanks(card.get()->rank);
 
-  if (cards_container_.size() == k_hand_size)
+  if (cards_.size() == k_hand_size)
     poker_combination_ = CalculatePokerCombination();
 }
 
 void Hand::CountAndSortRanks(Card::Rank rank)
 {
   auto rank_count = std::find_if(
-      ranks_counts_on_hand_.begin(),
-      ranks_counts_on_hand_.end(),
+      ranks_counts_.begin(),
+      ranks_counts_.end(),
       [&rank](const auto& rc) {
           return rc.first == rank;
     });
 
-  if (rank_count == ranks_counts_on_hand_.end()) {
-    ranks_counts_on_hand_.emplace_back(std::make_pair(rank,1));
+  if (rank_count == ranks_counts_.end()) {
+    ranks_counts_.emplace_back(std::make_pair(rank,1));
   }
   else {
     ++rank_count->second;
   }
 
   std::sort(
-      ranks_counts_on_hand_.begin(),
-      ranks_counts_on_hand_.end(),
+      ranks_counts_.begin(),
+      ranks_counts_.end(),
       [](const auto& left, const auto& right){
           if (left.second == right.second)
             return left.first > right.first;
@@ -52,13 +52,13 @@ void Hand::CountAndSortRanks(Card::Rank rank)
   });
 
   // If combination is "a wheel"
-  if (ranks_counts_on_hand_.size() == k_hand_size &&
-      ranks_counts_on_hand_.begin()->first == Card::Rank::Ace &&
-      (ranks_counts_on_hand_.begin() + 1)->first == Card::Rank::Five) {
-    ranks_counts_on_hand_.begin()->first = Card::Rank::One;
+  if (ranks_counts_.size() == k_hand_size &&
+      ranks_counts_.begin()->first == Card::Rank::Ace &&
+      (ranks_counts_.begin() + 1)->first == Card::Rank::Five) {
+    ranks_counts_.begin()->first = Card::Rank::One;
     std::sort(
-        ranks_counts_on_hand_.begin(),
-        ranks_counts_on_hand_.end(),
+        ranks_counts_.begin(),
+        ranks_counts_.end(),
         [](const auto& left, const auto& right){
             if (left.second == right.second)
               return left.first > right.first;
@@ -69,39 +69,39 @@ void Hand::CountAndSortRanks(Card::Rank rank)
 
 void Hand::Clear()
 {
-  cards_container_.clear();
-  suits_on_hand_.clear();
-  ranks_counts_on_hand_.clear();
+  cards_.clear();
+  suits_.clear();
+  ranks_counts_.clear();
 }
 
 PokerCombination Hand::GetPokerCombination() const
 {
-  assert(cards_container_.size() == k_hand_size && "The hand is not full!");
+  assert(cards_.size() == k_hand_size && "The hand is not full!");
 
   return poker_combination_;
 }
 
 PokerCombination Hand::CalculatePokerCombination()
 {
-  assert(cards_container_.size() == k_hand_size && "The hand is not full!");
+  assert(cards_.size() == k_hand_size && "The hand is not full!");
 
-  bool is_flush = (suits_on_hand_.size() == 1);
+  bool is_flush = (suits_.size() == 1);
 
-  std::uint16_t distance_ranks = static_cast<std::uint16_t>(ranks_counts_on_hand_.begin()->first) -
-      static_cast<std::uint16_t>(ranks_counts_on_hand_.rbegin()->first);
+  std::uint16_t distance_ranks = static_cast<std::uint16_t>(ranks_counts_.begin()->first) -
+      static_cast<std::uint16_t>(ranks_counts_.rbegin()->first);
 
-  bool is_straight = (ranks_counts_on_hand_.size() == k_hand_size && distance_ranks == 4);
+  bool is_straight = (ranks_counts_.size() == k_hand_size && distance_ranks == 4);
 
-  if (is_flush && is_straight && ranks_counts_on_hand_.begin()->first == Card::Rank::Ace)
+  if (is_flush && is_straight && ranks_counts_.begin()->first == Card::Rank::Ace)
     return PokerCombination::RoyalFlush;
 
   if (is_flush && is_straight)
     return PokerCombination::StraightFlush;
 
-  if (ranks_counts_on_hand_.begin()->second == 4)
+  if (ranks_counts_.begin()->second == 4)
     return PokerCombination::FourOfAKind;
 
-  if (ranks_counts_on_hand_.begin()->second == 3 && ranks_counts_on_hand_.rbegin()->second == 2)
+  if (ranks_counts_.begin()->second == 3 && ranks_counts_.rbegin()->second == 2)
     return PokerCombination::FullHouse;
 
   if (is_flush)
@@ -110,13 +110,13 @@ PokerCombination Hand::CalculatePokerCombination()
   if (is_straight)
     return PokerCombination::Straight;
 
-  if (ranks_counts_on_hand_.begin()->second == 3)
+  if (ranks_counts_.begin()->second == 3)
     return PokerCombination::ThreeOfAKind;
 
-  if (ranks_counts_on_hand_.begin()->second == 2 && ranks_counts_on_hand_.size() == 3)
+  if (ranks_counts_.begin()->second == 2 && ranks_counts_.size() == 3)
     return PokerCombination::TwoPairs;
 
-  if (ranks_counts_on_hand_.begin()->second == 2)
+  if (ranks_counts_.begin()->second == 2)
     return PokerCombination::OnePair;
 
   return PokerCombination::HighCard;
@@ -124,8 +124,8 @@ PokerCombination Hand::CalculatePokerCombination()
 
 bool operator<(const Hand& left, const Hand& right)
 {
-  assert(left.cards_container_.size() == k_hand_size &&
-      right.cards_container_.size() == k_hand_size &&
+  assert(left.cards_.size() == k_hand_size &&
+      right.cards_.size() == k_hand_size &&
           "Left or right hand is not full!");
 
   if (left.poker_combination_ < right.poker_combination_)
@@ -134,11 +134,11 @@ bool operator<(const Hand& left, const Hand& right)
   bool is_less = false;
 
   if (left.poker_combination_ == right.poker_combination_) {
-    auto mismatch_rank_count = std::mismatch(left.ranks_counts_on_hand_.begin(),
-        left.ranks_counts_on_hand_.end(),right.ranks_counts_on_hand_.begin());
+    auto mismatch_rank_count = std::mismatch(left.ranks_counts_.begin(),
+        left.ranks_counts_.end(),right.ranks_counts_.begin());
 
-    if (mismatch_rank_count.first != left.ranks_counts_on_hand_.end() &&
-        mismatch_rank_count.second != right.ranks_counts_on_hand_.end()) {
+    if (mismatch_rank_count.first != left.ranks_counts_.end() &&
+        mismatch_rank_count.second != right.ranks_counts_.end()) {
       if (*mismatch_rank_count.first < *mismatch_rank_count.second)
         is_less = true;
     }

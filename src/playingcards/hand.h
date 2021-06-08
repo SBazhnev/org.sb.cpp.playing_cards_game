@@ -19,10 +19,10 @@ public:
   using ShrPtr = std::shared_ptr<Hand>;
 
   Hand() :
-    cards_container_{},
+    cards_{},
     poker_combination_{PokerCombination::HighCard},
-    suits_on_hand_{},
-    ranks_counts_on_hand_{}
+    suits_{},
+    ranks_counts_{}
   {
   };
 
@@ -40,7 +40,7 @@ public:
 
   const CardsStore& GetCards() const
   {
-    return cards_container_;
+    return cards_;
   }
 
   PokerCombination GetPokerCombination() const;
@@ -57,15 +57,15 @@ private:
   PokerCombination CalculatePokerCombination();
 
 private:
-  CardsStore cards_container_;
+  CardsStore cards_;
 
   PokerCombination poker_combination_;
 
   // For counting the number of different suits in the hand
-  std::set<Card::Suit> suits_on_hand_;
+  std::set<Card::Suit> suits_;
 
   // For counting the number of different ranks in the hand
-  std::vector<std::pair<Card::Rank,std::size_t>> ranks_counts_on_hand_;
+  std::vector<std::pair<Card::Rank,std::size_t>> ranks_counts_;
 
 };
 
