@@ -19,10 +19,19 @@ class Menu : public Widget {
 public:
   using WeakPtr = std::weak_ptr<Menu>;
   using ShrPtr = std::shared_ptr<Menu>;
+  using UnqPtr = std::unique_ptr<Menu>;
 
   explicit Menu(bool visible = true) : Widget{visible}, options_{}
   {
   }
+
+  ~Menu() = default;
+
+  Menu(const Menu&) = default;
+  Menu& operator=(const Menu&) = default;
+
+  Menu(Menu&&) = default;
+  Menu& operator=(Menu&&) = default;
 
   void ExecuteOptionHandler(std::size_t index);
 
