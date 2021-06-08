@@ -19,6 +19,7 @@ class MenuOptionInput : public Widget {
 public:
   using WeakPtr = std::weak_ptr<MenuOptionInput>;
   using ShrPtr = std::shared_ptr<MenuOptionInput>;
+  using UnqPtr = std::unique_ptr<MenuOptionInput>;
 
   explicit MenuOptionInput(std::istream& input_stream, const Menu::ShrPtr& menu, bool visible = true) :
       Widget{visible},

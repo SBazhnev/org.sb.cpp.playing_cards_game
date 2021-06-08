@@ -14,10 +14,5 @@ void Label::OutputToStream(std::ostream& output_stream)
   }
 }
 
-void Label::SetText(std::string_view text)
-{
-  text_ = text;
-}
-
 } // namespace console
 } // namespace ui

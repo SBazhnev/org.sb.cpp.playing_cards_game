@@ -6,16 +6,19 @@
 
 #include <limits>
 #include <stdexcept>
+#include <string>
 
 namespace ui {
 namespace console {
+
+const std::string k_promt_text = "Enter menu option number >> ";
 
 void MenuOptionInput::OutputToStream(std::ostream& output_stream)
 {
   if (this->IsVisible()) {
     std::size_t menu_option_index = 0;
 
-    output_stream << "Enter menu option number >> ";
+    output_stream << k_promt_text;
     *input_stream_ >> menu_option_index;
 
     if (input_stream_->fail()) {

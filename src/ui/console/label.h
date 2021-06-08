@@ -18,12 +18,24 @@ class Label : public Widget {
 public:
   using WeakPtr = std::weak_ptr<Label>;
   using ShrPtr = std::shared_ptr<Label>;
+  using UnqPtr = std::unique_ptr<Label>;
 
   explicit Label(std::string_view text, bool visible = true) : Widget{visible}, text_(text)
   {
   }
 
-  void SetText(std::string_view text);
+  ~Label() = default;
+
+  Label(const Label&) = default;
+  Label& operator=(const Label&) = default;
+
+  Label(Label&&) = default;
+  Label& operator=(Label&&) = default;
+
+  void SetText(std::string_view text)
+  {
+    text_ = text;
+  }
 
 protected:
   void OutputToStream(std::ostream&) override;
