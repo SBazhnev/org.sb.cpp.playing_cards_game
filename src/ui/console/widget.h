@@ -15,6 +15,7 @@ class Widget {
 public:
   using WeakPtr = std::weak_ptr<Widget>;
   using ShrPtr = std::shared_ptr<Widget>;
+  using UnqPtr = std::unique_ptr<Widget>;
 
   Widget(const Widget&) = delete;
   Widget& operator=(const Widget&) = delete;

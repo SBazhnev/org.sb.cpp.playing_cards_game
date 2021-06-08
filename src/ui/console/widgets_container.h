@@ -18,6 +18,7 @@ class WidgetsContainer : public Widget {
 public:
   using WeakPtr = std::weak_ptr<WidgetsContainer>;
   using ShrPtr = std::shared_ptr<WidgetsContainer>;
+  using UnqPtr = std::unique_ptr<WidgetsContainer>;
 
   explicit WidgetsContainer(unsigned int column = 1, bool visible = true) :
         Widget{visible}, widgets_{}, column_{column}
