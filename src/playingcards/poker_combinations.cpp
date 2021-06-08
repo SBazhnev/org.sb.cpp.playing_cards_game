@@ -6,7 +6,7 @@
 
 namespace playingcards {
 
-std::string GetPokerCombinationText(const PokerCombination& poker_combination)
+std::string GetPokerCombinationText(PokerCombination poker_combination)
 {
   if (poker_combination == PokerCombination::HighCard)
     return "high card";

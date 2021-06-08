@@ -23,7 +23,7 @@ enum class PokerCombination : std::uint16_t {
   RoyalFlush
 };
 
-std::string GetPokerCombinationText(const PokerCombination& poker_combination);
+std::string GetPokerCombinationText(PokerCombination poker_combination);
 
 } // namespace playingcards
 
