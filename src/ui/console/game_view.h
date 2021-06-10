@@ -1,5 +1,5 @@
 // Copyright (c) 2021 Sergey Bazhnev <SBazhnev@gmail.com>
-// 
+// Licensed under the MIT License
 //
 
 #ifndef SRC_UI_CONSOLE_GAME_VIEW_H_

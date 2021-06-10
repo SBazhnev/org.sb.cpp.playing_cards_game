@@ -1,5 +1,5 @@
 // Copyright (c) 2021 Sergey Bazhnev <SBazhnev@gmail.com>
-// 
+// Licensed under the MIT License
 //
 
 #ifndef UI_CONSOLE_CARDS_HAND_VIEW_H_

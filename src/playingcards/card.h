@@ -1,5 +1,5 @@
 // Copyright (c) 2021 Sergey Bazhnev <SBazhnev@gmail.com>
-// 
+// Licensed under the MIT License
 //
 
 #ifndef PLAYINGCARDS_CARD_H_

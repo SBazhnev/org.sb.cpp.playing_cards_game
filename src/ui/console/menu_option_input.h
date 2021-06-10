@@ -1,5 +1,5 @@
 // Copyright (c) 2021 Sergey Bazhnev <SBazhnev@gmail.com>
-// 
+// Licensed under the MIT License
 //
 
 #ifndef UI_CONSOLE_MENU_OPTION_INPUT_H_
