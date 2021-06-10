@@ -40,7 +40,7 @@ private:
   std::ostream* out_;
   std::istream* in_;
 
-  ui::console::playingcards::GameView::UniqPtr game_view_;
+  ui::console::playingcards::GameView::UnqPtr game_view_;
 
   Deck::UnqPtr deck_;
 

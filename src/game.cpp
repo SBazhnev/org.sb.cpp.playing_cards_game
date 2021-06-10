@@ -6,7 +6,7 @@
 
 #include <memory>
 #include <stdexcept>
-#include <string>
+#include <string_view>
 
 #include "player.h"
 #include "playingcards/hand.h"
@@ -16,10 +16,9 @@ using namespace ui::console::playingcards;
 
 namespace playingcards {
 
-const std::string k_player_1_name = "You";
-const std::string k_player_2_name = "Comp";
-
-const std::string k_exit_message = "Exit. Bye!";
+// TODO move to localization file
+constexpr std::string_view k_player_1_name = "You";
+constexpr std::string_view k_player_2_name = "Comp";
 
 Game::Game(std::ostream& out, std::istream& in) :
     out_{&out},
@@ -42,7 +41,7 @@ void Game::Configure()
   MenuOption::HandlerType simple_mode_handler = std::bind(&Game::ModeSimpleRun,this);
   MenuOption::HandlerType two_players_mode_handler = std::bind(&Game::ModeTwoPlayersRun,this);
 
-  game_view_->Create(exit_handler,simple_mode_handler,two_players_mode_handler,*in_);
+  game_view_->BuildMainFrame(exit_handler,simple_mode_handler,two_players_mode_handler,*in_);
 }
 
 void Game::ShowGameView()
@@ -95,7 +94,9 @@ void Game::ModeTwoPlayersRun()
 
 void Game::Exit()
 {
-  *out_ << k_exit_message << '\n';
+  game_view_->SetExitFrame();
+
+  ShowGameView();
 }
 
 } // namespace playingcards

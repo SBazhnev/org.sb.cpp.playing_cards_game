@@ -15,7 +15,25 @@ namespace ui {
 namespace console {
 namespace playingcards {
 
-void GameView::Create(const MenuOption::HandlerType& exit, const MenuOption::HandlerType& simple_mode,
+// TODO apply std::format
+// TODO move to localization file
+constexpr std::string_view k_title_text = "The Simple Playing Cards game.";
+
+constexpr std::string_view k_exit_menu_option_text = "Exit";
+constexpr std::string_view k_simple_mode_menu_option_text = "Simple mode";
+constexpr std::string_view k_two_players_mode_menu_option_text = "Two players mode";
+
+constexpr std::string_view k_simple_mode_player_title_text = "Your cards:";
+
+const     std::string      k_combination_prefix_text = "Combination: ";
+
+const     std::string      k_winner_prefix_text = "Winner: ";
+
+constexpr std::string_view k_draw_text = "draw!";
+
+constexpr std::string_view k_exit_message_text = "Exit. Bye!";
+
+void GameView::BuildMainFrame(const MenuOption::HandlerType& exit, const MenuOption::HandlerType& simple_mode,
     const MenuOption::HandlerType& two_players_mode, std::istream& input_stream)
 {
   // Common menu
@@ -68,18 +86,17 @@ void GameView::OutputToStream(std::ostream& output_stream)
 
 void GameView::SetGameTableSimpleMode(const ::playingcards::Hand::ShrPtr& hand)
 {
-  auto player_name_label = std::make_shared<Label>("Your hand:");
+  auto player_title_label = std::make_shared<Label>(k_simple_mode_player_title_text);
   auto player_hand_view = std::make_shared<CardsHandView>(hand);
-  auto hand_combination_title = std::make_shared<Label>("Combination:");
-  auto hand_combination_label = std::make_shared<Label>(::playingcards::GetPokerCombinationText(hand->GetPokerCombination()));
+  auto hand_combination_label = std::make_shared<Label>(k_combination_prefix_text +
+      ::playingcards::GetPokerCombinationText(hand->GetPokerCombination()));
 
   SetStatusLabelText(k_simple_mode_menu_option_text);
 
   game_table_->Clear();
 
-  game_table_->AddWidget(player_name_label);
+  game_table_->AddWidget(player_title_label);
   game_table_->AddWidget(player_hand_view);
-  game_table_->AddWidget(hand_combination_title);
   game_table_->AddWidget(hand_combination_label);
 
   game_table_->SetVisible();
@@ -90,20 +107,18 @@ void GameView::SetGameTableTwoPlayersMode(const ::playingcards::Player& player_1
 {
   auto player_1_name_label = std::make_shared<Label>(player_1.name);
   auto player_1_hand_view = std::make_shared<CardsHandView>(player_1.hand);
-  auto player_1_combination_label = std::make_shared<Label>(
+  auto player_1_combination_label = std::make_shared<Label>(k_combination_prefix_text +
       ::playingcards::GetPokerCombinationText(player_1.hand->GetPokerCombination()));
 
   auto player_2_name_label = std::make_shared<Label>(player_2.name);
   auto player_2_hand_view = std::make_shared<CardsHandView>(player_2.hand);
-  auto player_2_combination_label = std::make_shared<Label>(
+  auto player_2_combination_label = std::make_shared<Label>(k_combination_prefix_text +
       ::playingcards::GetPokerCombinationText(player_2.hand->GetPokerCombination()));
 
-  auto combination_text_label = std::make_shared<Label>("Combination:");
-
-  std::string winner_text = "Winner: ";
+  std::string winner_text = k_winner_prefix_text;
 
   if (*player_1.hand == *player_2.hand) {
-    winner_text += "draw!";
+    winner_text += k_draw_text;
   }
   else if (*player_1.hand < *player_2.hand) {
     winner_text += player_2.name + "!";
@@ -120,17 +135,22 @@ void GameView::SetGameTableTwoPlayersMode(const ::playingcards::Player& player_1
 
   game_table_->AddWidget(player_1_name_label);
   game_table_->AddWidget(player_1_hand_view);
-  game_table_->AddWidget(combination_text_label);
   game_table_->AddWidget(player_1_combination_label);
 
   game_table_->AddWidget(player_2_name_label);
   game_table_->AddWidget(player_2_hand_view);
-  game_table_->AddWidget(combination_text_label);
   game_table_->AddWidget(player_2_combination_label);
 
   game_table_->AddWidget(winner_label);
 
   game_table_->SetVisible();
+}
+
+void GameView::SetExitFrame()
+{
+  widgets_.Clear();
+
+  widgets_.AddWidget(std::make_shared<Label>(k_exit_message_text));
 }
 
 } // namespace playingcards
