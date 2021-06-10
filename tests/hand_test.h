@@ -19,11 +19,11 @@ struct RoyalFlushClubs {
 
   RoyalFlushClubs() : hand{}
   {
-    hand.AddCard(std::make_shared<Card>(CardSuit::Clubs,CardRank::Ace));
-    hand.AddCard(std::make_shared<Card>(CardSuit::Clubs,CardRank::King));
-    hand.AddCard(std::make_shared<Card>(CardSuit::Clubs,CardRank::Ten));
-    hand.AddCard(std::make_shared<Card>(CardSuit::Clubs,CardRank::Jack));
-    hand.AddCard(std::make_shared<Card>(CardSuit::Clubs,CardRank::Queen));
+    hand.AddCard(std::make_shared<Card>(Card::Suit::Clubs,Card::Rank::Ace));
+    hand.AddCard(std::make_shared<Card>(Card::Suit::Clubs,Card::Rank::King));
+    hand.AddCard(std::make_shared<Card>(Card::Suit::Clubs,Card::Rank::Ten));
+    hand.AddCard(std::make_shared<Card>(Card::Suit::Clubs,Card::Rank::Jack));
+    hand.AddCard(std::make_shared<Card>(Card::Suit::Clubs,Card::Rank::Queen));
   }
 };
 
@@ -32,11 +32,11 @@ struct RoyalFlushDiamonds {
 
   RoyalFlushDiamonds() : hand{}
   {
-    hand.AddCard(std::make_shared<Card>(CardSuit::Diamonds,CardRank::Ace));
-    hand.AddCard(std::make_shared<Card>(CardSuit::Diamonds,CardRank::Ten));
-    hand.AddCard(std::make_shared<Card>(CardSuit::Diamonds,CardRank::King));
-    hand.AddCard(std::make_shared<Card>(CardSuit::Diamonds,CardRank::Jack));
-    hand.AddCard(std::make_shared<Card>(CardSuit::Diamonds,CardRank::Queen));
+    hand.AddCard(std::make_shared<Card>(Card::Suit::Diamonds,Card::Rank::Ace));
+    hand.AddCard(std::make_shared<Card>(Card::Suit::Diamonds,Card::Rank::Ten));
+    hand.AddCard(std::make_shared<Card>(Card::Suit::Diamonds,Card::Rank::King));
+    hand.AddCard(std::make_shared<Card>(Card::Suit::Diamonds,Card::Rank::Jack));
+    hand.AddCard(std::make_shared<Card>(Card::Suit::Diamonds,Card::Rank::Queen));
   }
 };
 
@@ -54,11 +54,11 @@ struct StraightFlushNTJQKClubs {
 
   StraightFlushNTJQKClubs() : hand{}
   {
-    hand.AddCard(std::make_shared<Card>(CardSuit::Clubs,CardRank::Nine));
-    hand.AddCard(std::make_shared<Card>(CardSuit::Clubs,CardRank::Ten));
-    hand.AddCard(std::make_shared<Card>(CardSuit::Clubs,CardRank::King));
-    hand.AddCard(std::make_shared<Card>(CardSuit::Clubs,CardRank::Jack));
-    hand.AddCard(std::make_shared<Card>(CardSuit::Clubs,CardRank::Queen));
+    hand.AddCard(std::make_shared<Card>(Card::Suit::Clubs,Card::Rank::Nine));
+    hand.AddCard(std::make_shared<Card>(Card::Suit::Clubs,Card::Rank::Ten));
+    hand.AddCard(std::make_shared<Card>(Card::Suit::Clubs,Card::Rank::King));
+    hand.AddCard(std::make_shared<Card>(Card::Suit::Clubs,Card::Rank::Jack));
+    hand.AddCard(std::make_shared<Card>(Card::Suit::Clubs,Card::Rank::Queen));
   }
 };
 
@@ -67,11 +67,11 @@ struct StraightFlushNTJQKDiamonds {
 
   StraightFlushNTJQKDiamonds() : hand{}
   {
-    hand.AddCard(std::make_shared<Card>(CardSuit::Diamonds,CardRank::Nine));
-    hand.AddCard(std::make_shared<Card>(CardSuit::Diamonds,CardRank::Ten));
-    hand.AddCard(std::make_shared<Card>(CardSuit::Diamonds,CardRank::King));
-    hand.AddCard(std::make_shared<Card>(CardSuit::Diamonds,CardRank::Jack));
-    hand.AddCard(std::make_shared<Card>(CardSuit::Diamonds,CardRank::Queen));
+    hand.AddCard(std::make_shared<Card>(Card::Suit::Diamonds,Card::Rank::Nine));
+    hand.AddCard(std::make_shared<Card>(Card::Suit::Diamonds,Card::Rank::Ten));
+    hand.AddCard(std::make_shared<Card>(Card::Suit::Diamonds,Card::Rank::King));
+    hand.AddCard(std::make_shared<Card>(Card::Suit::Diamonds,Card::Rank::Jack));
+    hand.AddCard(std::make_shared<Card>(Card::Suit::Diamonds,Card::Rank::Queen));
   }
 };
 
@@ -80,11 +80,11 @@ struct StraightFlushTTFFSDiamonds {
 
   StraightFlushTTFFSDiamonds() : hand{}
   {
-    hand.AddCard(std::make_shared<Card>(CardSuit::Diamonds,CardRank::Two));
-    hand.AddCard(std::make_shared<Card>(CardSuit::Diamonds,CardRank::Four));
-    hand.AddCard(std::make_shared<Card>(CardSuit::Diamonds,CardRank::Six));
-    hand.AddCard(std::make_shared<Card>(CardSuit::Diamonds,CardRank::Five));
-    hand.AddCard(std::make_shared<Card>(CardSuit::Diamonds,CardRank::Three));
+    hand.AddCard(std::make_shared<Card>(Card::Suit::Diamonds,Card::Rank::Two));
+    hand.AddCard(std::make_shared<Card>(Card::Suit::Diamonds,Card::Rank::Four));
+    hand.AddCard(std::make_shared<Card>(Card::Suit::Diamonds,Card::Rank::Six));
+    hand.AddCard(std::make_shared<Card>(Card::Suit::Diamonds,Card::Rank::Five));
+    hand.AddCard(std::make_shared<Card>(Card::Suit::Diamonds,Card::Rank::Three));
   }
 };
 
@@ -93,11 +93,11 @@ struct StraightFlushATTFFDiamonds {
 
   StraightFlushATTFFDiamonds() : hand{}
   {
-    hand.AddCard(std::make_shared<Card>(CardSuit::Diamonds,CardRank::Two));
-    hand.AddCard(std::make_shared<Card>(CardSuit::Diamonds,CardRank::Four));
-    hand.AddCard(std::make_shared<Card>(CardSuit::Diamonds,CardRank::Ace));
-    hand.AddCard(std::make_shared<Card>(CardSuit::Diamonds,CardRank::Five));
-    hand.AddCard(std::make_shared<Card>(CardSuit::Diamonds,CardRank::Three));
+    hand.AddCard(std::make_shared<Card>(Card::Suit::Diamonds,Card::Rank::Two));
+    hand.AddCard(std::make_shared<Card>(Card::Suit::Diamonds,Card::Rank::Four));
+    hand.AddCard(std::make_shared<Card>(Card::Suit::Diamonds,Card::Rank::Ace));
+    hand.AddCard(std::make_shared<Card>(Card::Suit::Diamonds,Card::Rank::Five));
+    hand.AddCard(std::make_shared<Card>(Card::Suit::Diamonds,Card::Rank::Three));
   }
 };
 
@@ -117,11 +117,11 @@ struct FourOfAKindAAAAKClubs {
 
   FourOfAKindAAAAKClubs() : hand{}
   {
-    hand.AddCard(std::make_shared<Card>(CardSuit::Clubs,CardRank::Ace));
-    hand.AddCard(std::make_shared<Card>(CardSuit::Diamonds,CardRank::Ace));
-    hand.AddCard(std::make_shared<Card>(CardSuit::Hearts,CardRank::Ace));
-    hand.AddCard(std::make_shared<Card>(CardSuit::Clubs,CardRank::King));
-    hand.AddCard(std::make_shared<Card>(CardSuit::Spades,CardRank::Ace));
+    hand.AddCard(std::make_shared<Card>(Card::Suit::Clubs,Card::Rank::Ace));
+    hand.AddCard(std::make_shared<Card>(Card::Suit::Diamonds,Card::Rank::Ace));
+    hand.AddCard(std::make_shared<Card>(Card::Suit::Hearts,Card::Rank::Ace));
+    hand.AddCard(std::make_shared<Card>(Card::Suit::Clubs,Card::Rank::King));
+    hand.AddCard(std::make_shared<Card>(Card::Suit::Spades,Card::Rank::Ace));
   }
 };
 
@@ -130,11 +130,11 @@ struct FourOfAKindAAAAKHearts {
 
   FourOfAKindAAAAKHearts() : hand{}
   {
-    hand.AddCard(std::make_shared<Card>(CardSuit::Clubs,CardRank::Ace));
-    hand.AddCard(std::make_shared<Card>(CardSuit::Diamonds,CardRank::Ace));
-    hand.AddCard(std::make_shared<Card>(CardSuit::Hearts,CardRank::Ace));
-    hand.AddCard(std::make_shared<Card>(CardSuit::Hearts,CardRank::King));
-    hand.AddCard(std::make_shared<Card>(CardSuit::Spades,CardRank::Ace));
+    hand.AddCard(std::make_shared<Card>(Card::Suit::Clubs,Card::Rank::Ace));
+    hand.AddCard(std::make_shared<Card>(Card::Suit::Diamonds,Card::Rank::Ace));
+    hand.AddCard(std::make_shared<Card>(Card::Suit::Hearts,Card::Rank::Ace));
+    hand.AddCard(std::make_shared<Card>(Card::Suit::Hearts,Card::Rank::King));
+    hand.AddCard(std::make_shared<Card>(Card::Suit::Spades,Card::Rank::Ace));
   }
 };
 
@@ -143,11 +143,11 @@ struct FourOfAKindAAAAQHearts {
 
   FourOfAKindAAAAQHearts() : hand{}
   {
-    hand.AddCard(std::make_shared<Card>(CardSuit::Clubs,CardRank::Ace));
-    hand.AddCard(std::make_shared<Card>(CardSuit::Diamonds,CardRank::Ace));
-    hand.AddCard(std::make_shared<Card>(CardSuit::Hearts,CardRank::Ace));
-    hand.AddCard(std::make_shared<Card>(CardSuit::Hearts,CardRank::Queen));
-    hand.AddCard(std::make_shared<Card>(CardSuit::Spades,CardRank::Ace));
+    hand.AddCard(std::make_shared<Card>(Card::Suit::Clubs,Card::Rank::Ace));
+    hand.AddCard(std::make_shared<Card>(Card::Suit::Diamonds,Card::Rank::Ace));
+    hand.AddCard(std::make_shared<Card>(Card::Suit::Hearts,Card::Rank::Ace));
+    hand.AddCard(std::make_shared<Card>(Card::Suit::Hearts,Card::Rank::Queen));
+    hand.AddCard(std::make_shared<Card>(Card::Suit::Spades,Card::Rank::Ace));
   }
 };
 
@@ -156,11 +156,11 @@ struct FourOfAKindKKKKAHearts {
 
   FourOfAKindKKKKAHearts() : hand{}
   {
-    hand.AddCard(std::make_shared<Card>(CardSuit::Clubs,CardRank::King));
-    hand.AddCard(std::make_shared<Card>(CardSuit::Diamonds,CardRank::King));
-    hand.AddCard(std::make_shared<Card>(CardSuit::Hearts,CardRank::King));
-    hand.AddCard(std::make_shared<Card>(CardSuit::Hearts,CardRank::Ace));
-    hand.AddCard(std::make_shared<Card>(CardSuit::Spades,CardRank::King));
+    hand.AddCard(std::make_shared<Card>(Card::Suit::Clubs,Card::Rank::King));
+    hand.AddCard(std::make_shared<Card>(Card::Suit::Diamonds,Card::Rank::King));
+    hand.AddCard(std::make_shared<Card>(Card::Suit::Hearts,Card::Rank::King));
+    hand.AddCard(std::make_shared<Card>(Card::Suit::Hearts,Card::Rank::Ace));
+    hand.AddCard(std::make_shared<Card>(Card::Suit::Spades,Card::Rank::King));
   }
 };
 
@@ -180,11 +180,11 @@ struct FullHouseAAAKKSpades {
 
   FullHouseAAAKKSpades() : hand{}
   {
-    hand.AddCard(std::make_shared<Card>(CardSuit::Clubs,CardRank::Ace));
-    hand.AddCard(std::make_shared<Card>(CardSuit::Diamonds,CardRank::Ace));
-    hand.AddCard(std::make_shared<Card>(CardSuit::Hearts,CardRank::Ace));
-    hand.AddCard(std::make_shared<Card>(CardSuit::Hearts,CardRank::King));
-    hand.AddCard(std::make_shared<Card>(CardSuit::Spades,CardRank::King));
+    hand.AddCard(std::make_shared<Card>(Card::Suit::Clubs,Card::Rank::Ace));
+    hand.AddCard(std::make_shared<Card>(Card::Suit::Diamonds,Card::Rank::Ace));
+    hand.AddCard(std::make_shared<Card>(Card::Suit::Hearts,Card::Rank::Ace));
+    hand.AddCard(std::make_shared<Card>(Card::Suit::Hearts,Card::Rank::King));
+    hand.AddCard(std::make_shared<Card>(Card::Suit::Spades,Card::Rank::King));
   }
 };
 
@@ -193,11 +193,11 @@ struct FullHouseAAAKKDiamonds {
 
   FullHouseAAAKKDiamonds() : hand{}
   {
-    hand.AddCard(std::make_shared<Card>(CardSuit::Clubs,CardRank::Ace));
-    hand.AddCard(std::make_shared<Card>(CardSuit::Diamonds,CardRank::Ace));
-    hand.AddCard(std::make_shared<Card>(CardSuit::Hearts,CardRank::Ace));
-    hand.AddCard(std::make_shared<Card>(CardSuit::Clubs,CardRank::King));
-    hand.AddCard(std::make_shared<Card>(CardSuit::Diamonds,CardRank::King));
+    hand.AddCard(std::make_shared<Card>(Card::Suit::Clubs,Card::Rank::Ace));
+    hand.AddCard(std::make_shared<Card>(Card::Suit::Diamonds,Card::Rank::Ace));
+    hand.AddCard(std::make_shared<Card>(Card::Suit::Hearts,Card::Rank::Ace));
+    hand.AddCard(std::make_shared<Card>(Card::Suit::Clubs,Card::Rank::King));
+    hand.AddCard(std::make_shared<Card>(Card::Suit::Diamonds,Card::Rank::King));
   }
 };
 
@@ -206,11 +206,11 @@ struct FullHouseKKKAADiamonds {
 
   FullHouseKKKAADiamonds() : hand{}
   {
-    hand.AddCard(std::make_shared<Card>(CardSuit::Clubs,CardRank::King));
-    hand.AddCard(std::make_shared<Card>(CardSuit::Hearts,CardRank::Ace));
-    hand.AddCard(std::make_shared<Card>(CardSuit::Hearts,CardRank::King));
-    hand.AddCard(std::make_shared<Card>(CardSuit::Diamonds,CardRank::King));
-    hand.AddCard(std::make_shared<Card>(CardSuit::Diamonds,CardRank::Ace));
+    hand.AddCard(std::make_shared<Card>(Card::Suit::Clubs,Card::Rank::King));
+    hand.AddCard(std::make_shared<Card>(Card::Suit::Hearts,Card::Rank::Ace));
+    hand.AddCard(std::make_shared<Card>(Card::Suit::Hearts,Card::Rank::King));
+    hand.AddCard(std::make_shared<Card>(Card::Suit::Diamonds,Card::Rank::King));
+    hand.AddCard(std::make_shared<Card>(Card::Suit::Diamonds,Card::Rank::Ace));
   }
 };
 
@@ -229,11 +229,11 @@ struct FlushAKQJNClubs {
 
   FlushAKQJNClubs() : hand{}
   {
-    hand.AddCard(std::make_shared<Card>(CardSuit::Clubs,CardRank::Ace));
-    hand.AddCard(std::make_shared<Card>(CardSuit::Clubs,CardRank::King));
-    hand.AddCard(std::make_shared<Card>(CardSuit::Clubs,CardRank::Nine));
-    hand.AddCard(std::make_shared<Card>(CardSuit::Clubs,CardRank::Jack));
-    hand.AddCard(std::make_shared<Card>(CardSuit::Clubs,CardRank::Queen));
+    hand.AddCard(std::make_shared<Card>(Card::Suit::Clubs,Card::Rank::Ace));
+    hand.AddCard(std::make_shared<Card>(Card::Suit::Clubs,Card::Rank::King));
+    hand.AddCard(std::make_shared<Card>(Card::Suit::Clubs,Card::Rank::Nine));
+    hand.AddCard(std::make_shared<Card>(Card::Suit::Clubs,Card::Rank::Jack));
+    hand.AddCard(std::make_shared<Card>(Card::Suit::Clubs,Card::Rank::Queen));
   }
 };
 
@@ -242,11 +242,11 @@ struct FlushAKQJNSpades {
 
   FlushAKQJNSpades() : hand{}
   {
-    hand.AddCard(std::make_shared<Card>(CardSuit::Spades,CardRank::Ace));
-    hand.AddCard(std::make_shared<Card>(CardSuit::Spades,CardRank::King));
-    hand.AddCard(std::make_shared<Card>(CardSuit::Spades,CardRank::Nine));
-    hand.AddCard(std::make_shared<Card>(CardSuit::Spades,CardRank::Jack));
-    hand.AddCard(std::make_shared<Card>(CardSuit::Spades,CardRank::Queen));
+    hand.AddCard(std::make_shared<Card>(Card::Suit::Spades,Card::Rank::Ace));
+    hand.AddCard(std::make_shared<Card>(Card::Suit::Spades,Card::Rank::King));
+    hand.AddCard(std::make_shared<Card>(Card::Suit::Spades,Card::Rank::Nine));
+    hand.AddCard(std::make_shared<Card>(Card::Suit::Spades,Card::Rank::Jack));
+    hand.AddCard(std::make_shared<Card>(Card::Suit::Spades,Card::Rank::Queen));
   }
 };
 
@@ -255,11 +255,11 @@ struct FlushKQJTEHearts {
 
   FlushKQJTEHearts() : hand{}
   {
-    hand.AddCard(std::make_shared<Card>(CardSuit::Hearts,CardRank::Ten));
-    hand.AddCard(std::make_shared<Card>(CardSuit::Hearts,CardRank::King));
-    hand.AddCard(std::make_shared<Card>(CardSuit::Hearts,CardRank::Eight));
-    hand.AddCard(std::make_shared<Card>(CardSuit::Hearts,CardRank::Jack));
-    hand.AddCard(std::make_shared<Card>(CardSuit::Hearts,CardRank::Queen));
+    hand.AddCard(std::make_shared<Card>(Card::Suit::Hearts,Card::Rank::Ten));
+    hand.AddCard(std::make_shared<Card>(Card::Suit::Hearts,Card::Rank::King));
+    hand.AddCard(std::make_shared<Card>(Card::Suit::Hearts,Card::Rank::Eight));
+    hand.AddCard(std::make_shared<Card>(Card::Suit::Hearts,Card::Rank::Jack));
+    hand.AddCard(std::make_shared<Card>(Card::Suit::Hearts,Card::Rank::Queen));
   }
 };
 
@@ -278,11 +278,11 @@ struct StraightAKQJTSpades {
 
   StraightAKQJTSpades() : hand{}
   {
-    hand.AddCard(std::make_shared<Card>(CardSuit::Spades,CardRank::Ten));
-    hand.AddCard(std::make_shared<Card>(CardSuit::Spades,CardRank::King));
-    hand.AddCard(std::make_shared<Card>(CardSuit::Spades,CardRank::Ace));
-    hand.AddCard(std::make_shared<Card>(CardSuit::Spades,CardRank::Jack));
-    hand.AddCard(std::make_shared<Card>(CardSuit::Hearts,CardRank::Queen));
+    hand.AddCard(std::make_shared<Card>(Card::Suit::Spades,Card::Rank::Ten));
+    hand.AddCard(std::make_shared<Card>(Card::Suit::Spades,Card::Rank::King));
+    hand.AddCard(std::make_shared<Card>(Card::Suit::Spades,Card::Rank::Ace));
+    hand.AddCard(std::make_shared<Card>(Card::Suit::Spades,Card::Rank::Jack));
+    hand.AddCard(std::make_shared<Card>(Card::Suit::Hearts,Card::Rank::Queen));
   }
 };
 
@@ -291,11 +291,11 @@ struct StraightAKQJTHearts {
 
   StraightAKQJTHearts() : hand{}
   {
-    hand.AddCard(std::make_shared<Card>(CardSuit::Hearts,CardRank::Ten));
-    hand.AddCard(std::make_shared<Card>(CardSuit::Hearts,CardRank::King));
-    hand.AddCard(std::make_shared<Card>(CardSuit::Hearts,CardRank::Ace));
-    hand.AddCard(std::make_shared<Card>(CardSuit::Hearts,CardRank::Jack));
-    hand.AddCard(std::make_shared<Card>(CardSuit::Spades,CardRank::Queen));
+    hand.AddCard(std::make_shared<Card>(Card::Suit::Hearts,Card::Rank::Ten));
+    hand.AddCard(std::make_shared<Card>(Card::Suit::Hearts,Card::Rank::King));
+    hand.AddCard(std::make_shared<Card>(Card::Suit::Hearts,Card::Rank::Ace));
+    hand.AddCard(std::make_shared<Card>(Card::Suit::Hearts,Card::Rank::Jack));
+    hand.AddCard(std::make_shared<Card>(Card::Suit::Spades,Card::Rank::Queen));
   }
 };
 
@@ -304,11 +304,11 @@ struct StraightKQJTNClubs {
 
   StraightKQJTNClubs() : hand{}
   {
-    hand.AddCard(std::make_shared<Card>(CardSuit::Clubs,CardRank::Ten));
-    hand.AddCard(std::make_shared<Card>(CardSuit::Clubs,CardRank::King));
-    hand.AddCard(std::make_shared<Card>(CardSuit::Clubs,CardRank::Nine));
-    hand.AddCard(std::make_shared<Card>(CardSuit::Clubs,CardRank::Jack));
-    hand.AddCard(std::make_shared<Card>(CardSuit::Diamonds,CardRank::Queen));
+    hand.AddCard(std::make_shared<Card>(Card::Suit::Clubs,Card::Rank::Ten));
+    hand.AddCard(std::make_shared<Card>(Card::Suit::Clubs,Card::Rank::King));
+    hand.AddCard(std::make_shared<Card>(Card::Suit::Clubs,Card::Rank::Nine));
+    hand.AddCard(std::make_shared<Card>(Card::Suit::Clubs,Card::Rank::Jack));
+    hand.AddCard(std::make_shared<Card>(Card::Suit::Diamonds,Card::Rank::Queen));
   }
 };
 
@@ -317,11 +317,11 @@ struct StraightATTFFClubs {
 
   StraightATTFFClubs() : hand{}
   {
-    hand.AddCard(std::make_shared<Card>(CardSuit::Clubs,CardRank::Ace));
-    hand.AddCard(std::make_shared<Card>(CardSuit::Clubs,CardRank::Two));
-    hand.AddCard(std::make_shared<Card>(CardSuit::Clubs,CardRank::Three));
-    hand.AddCard(std::make_shared<Card>(CardSuit::Clubs,CardRank::Four));
-    hand.AddCard(std::make_shared<Card>(CardSuit::Diamonds,CardRank::Five));
+    hand.AddCard(std::make_shared<Card>(Card::Suit::Clubs,Card::Rank::Ace));
+    hand.AddCard(std::make_shared<Card>(Card::Suit::Clubs,Card::Rank::Two));
+    hand.AddCard(std::make_shared<Card>(Card::Suit::Clubs,Card::Rank::Three));
+    hand.AddCard(std::make_shared<Card>(Card::Suit::Clubs,Card::Rank::Four));
+    hand.AddCard(std::make_shared<Card>(Card::Suit::Diamonds,Card::Rank::Five));
   }
 };
 
@@ -341,11 +341,11 @@ struct ThreeOfAKindAAAKQClubs {
 
   ThreeOfAKindAAAKQClubs() : hand{}
   {
-    hand.AddCard(std::make_shared<Card>(CardSuit::Clubs,CardRank::Ace));
-    hand.AddCard(std::make_shared<Card>(CardSuit::Clubs,CardRank::King));
-    hand.AddCard(std::make_shared<Card>(CardSuit::Clubs,CardRank::Queen));
-    hand.AddCard(std::make_shared<Card>(CardSuit::Hearts,CardRank::Ace));
-    hand.AddCard(std::make_shared<Card>(CardSuit::Diamonds,CardRank::Ace));
+    hand.AddCard(std::make_shared<Card>(Card::Suit::Clubs,Card::Rank::Ace));
+    hand.AddCard(std::make_shared<Card>(Card::Suit::Clubs,Card::Rank::King));
+    hand.AddCard(std::make_shared<Card>(Card::Suit::Clubs,Card::Rank::Queen));
+    hand.AddCard(std::make_shared<Card>(Card::Suit::Hearts,Card::Rank::Ace));
+    hand.AddCard(std::make_shared<Card>(Card::Suit::Diamonds,Card::Rank::Ace));
   }
 };
 
@@ -354,11 +354,11 @@ struct ThreeOfAKindAAAKQSpades {
 
   ThreeOfAKindAAAKQSpades() : hand{}
   {
-    hand.AddCard(std::make_shared<Card>(CardSuit::Spades,CardRank::Ace));
-    hand.AddCard(std::make_shared<Card>(CardSuit::Spades,CardRank::King));
-    hand.AddCard(std::make_shared<Card>(CardSuit::Spades,CardRank::Queen));
-    hand.AddCard(std::make_shared<Card>(CardSuit::Hearts,CardRank::Ace));
-    hand.AddCard(std::make_shared<Card>(CardSuit::Diamonds,CardRank::Ace));
+    hand.AddCard(std::make_shared<Card>(Card::Suit::Spades,Card::Rank::Ace));
+    hand.AddCard(std::make_shared<Card>(Card::Suit::Spades,Card::Rank::King));
+    hand.AddCard(std::make_shared<Card>(Card::Suit::Spades,Card::Rank::Queen));
+    hand.AddCard(std::make_shared<Card>(Card::Suit::Hearts,Card::Rank::Ace));
+    hand.AddCard(std::make_shared<Card>(Card::Suit::Diamonds,Card::Rank::Ace));
   }
 };
 
@@ -367,11 +367,11 @@ struct ThreeOfAKindAAAQJClubs {
 
   ThreeOfAKindAAAQJClubs() : hand{}
   {
-    hand.AddCard(std::make_shared<Card>(CardSuit::Clubs,CardRank::Ace));
-    hand.AddCard(std::make_shared<Card>(CardSuit::Clubs,CardRank::Jack));
-    hand.AddCard(std::make_shared<Card>(CardSuit::Clubs,CardRank::Queen));
-    hand.AddCard(std::make_shared<Card>(CardSuit::Hearts,CardRank::Ace));
-    hand.AddCard(std::make_shared<Card>(CardSuit::Diamonds,CardRank::Ace));
+    hand.AddCard(std::make_shared<Card>(Card::Suit::Clubs,Card::Rank::Ace));
+    hand.AddCard(std::make_shared<Card>(Card::Suit::Clubs,Card::Rank::Jack));
+    hand.AddCard(std::make_shared<Card>(Card::Suit::Clubs,Card::Rank::Queen));
+    hand.AddCard(std::make_shared<Card>(Card::Suit::Hearts,Card::Rank::Ace));
+    hand.AddCard(std::make_shared<Card>(Card::Suit::Diamonds,Card::Rank::Ace));
   }
 };
 
@@ -380,11 +380,11 @@ struct ThreeOfAKindKKKAQClubs {
 
   ThreeOfAKindKKKAQClubs() : hand{}
   {
-    hand.AddCard(std::make_shared<Card>(CardSuit::Clubs,CardRank::Ace));
-    hand.AddCard(std::make_shared<Card>(CardSuit::Clubs,CardRank::King));
-    hand.AddCard(std::make_shared<Card>(CardSuit::Clubs,CardRank::Queen));
-    hand.AddCard(std::make_shared<Card>(CardSuit::Hearts,CardRank::King));
-    hand.AddCard(std::make_shared<Card>(CardSuit::Diamonds,CardRank::King));
+    hand.AddCard(std::make_shared<Card>(Card::Suit::Clubs,Card::Rank::Ace));
+    hand.AddCard(std::make_shared<Card>(Card::Suit::Clubs,Card::Rank::King));
+    hand.AddCard(std::make_shared<Card>(Card::Suit::Clubs,Card::Rank::Queen));
+    hand.AddCard(std::make_shared<Card>(Card::Suit::Hearts,Card::Rank::King));
+    hand.AddCard(std::make_shared<Card>(Card::Suit::Diamonds,Card::Rank::King));
   }
 };
 
@@ -404,11 +404,11 @@ struct TwoPairsAAKKQClubs {
 
   TwoPairsAAKKQClubs() : hand{}
   {
-    hand.AddCard(std::make_shared<Card>(CardSuit::Clubs,CardRank::Ace));
-    hand.AddCard(std::make_shared<Card>(CardSuit::Clubs,CardRank::King));
-    hand.AddCard(std::make_shared<Card>(CardSuit::Hearts,CardRank::Ace));
-    hand.AddCard(std::make_shared<Card>(CardSuit::Hearts,CardRank::King));
-    hand.AddCard(std::make_shared<Card>(CardSuit::Diamonds,CardRank::Queen));
+    hand.AddCard(std::make_shared<Card>(Card::Suit::Clubs,Card::Rank::Ace));
+    hand.AddCard(std::make_shared<Card>(Card::Suit::Clubs,Card::Rank::King));
+    hand.AddCard(std::make_shared<Card>(Card::Suit::Hearts,Card::Rank::Ace));
+    hand.AddCard(std::make_shared<Card>(Card::Suit::Hearts,Card::Rank::King));
+    hand.AddCard(std::make_shared<Card>(Card::Suit::Diamonds,Card::Rank::Queen));
   }
 };
 
@@ -417,11 +417,11 @@ struct TwoPairsAAKKQSpades {
 
   TwoPairsAAKKQSpades() : hand{}
   {
-    hand.AddCard(std::make_shared<Card>(CardSuit::Spades,CardRank::Ace));
-    hand.AddCard(std::make_shared<Card>(CardSuit::Spades,CardRank::King));
-    hand.AddCard(std::make_shared<Card>(CardSuit::Diamonds,CardRank::Ace));
-    hand.AddCard(std::make_shared<Card>(CardSuit::Diamonds,CardRank::King));
-    hand.AddCard(std::make_shared<Card>(CardSuit::Hearts,CardRank::Queen));
+    hand.AddCard(std::make_shared<Card>(Card::Suit::Spades,Card::Rank::Ace));
+    hand.AddCard(std::make_shared<Card>(Card::Suit::Spades,Card::Rank::King));
+    hand.AddCard(std::make_shared<Card>(Card::Suit::Diamonds,Card::Rank::Ace));
+    hand.AddCard(std::make_shared<Card>(Card::Suit::Diamonds,Card::Rank::King));
+    hand.AddCard(std::make_shared<Card>(Card::Suit::Hearts,Card::Rank::Queen));
   }
 };
 
@@ -430,11 +430,11 @@ struct TwoPairsAAQQKSpades {
 
   TwoPairsAAQQKSpades() : hand{}
   {
-    hand.AddCard(std::make_shared<Card>(CardSuit::Spades,CardRank::Ace));
-    hand.AddCard(std::make_shared<Card>(CardSuit::Spades,CardRank::Queen));
-    hand.AddCard(std::make_shared<Card>(CardSuit::Diamonds,CardRank::Ace));
-    hand.AddCard(std::make_shared<Card>(CardSuit::Diamonds,CardRank::Queen));
-    hand.AddCard(std::make_shared<Card>(CardSuit::Hearts,CardRank::King));
+    hand.AddCard(std::make_shared<Card>(Card::Suit::Spades,Card::Rank::Ace));
+    hand.AddCard(std::make_shared<Card>(Card::Suit::Spades,Card::Rank::Queen));
+    hand.AddCard(std::make_shared<Card>(Card::Suit::Diamonds,Card::Rank::Ace));
+    hand.AddCard(std::make_shared<Card>(Card::Suit::Diamonds,Card::Rank::Queen));
+    hand.AddCard(std::make_shared<Card>(Card::Suit::Hearts,Card::Rank::King));
   }
 };
 
@@ -443,11 +443,11 @@ struct TwoPairsAAKKJClubs {
 
   TwoPairsAAKKJClubs() : hand{}
   {
-    hand.AddCard(std::make_shared<Card>(CardSuit::Clubs,CardRank::Ace));
-    hand.AddCard(std::make_shared<Card>(CardSuit::Clubs,CardRank::King));
-    hand.AddCard(std::make_shared<Card>(CardSuit::Hearts,CardRank::Ace));
-    hand.AddCard(std::make_shared<Card>(CardSuit::Hearts,CardRank::King));
-    hand.AddCard(std::make_shared<Card>(CardSuit::Diamonds,CardRank::Jack));
+    hand.AddCard(std::make_shared<Card>(Card::Suit::Clubs,Card::Rank::Ace));
+    hand.AddCard(std::make_shared<Card>(Card::Suit::Clubs,Card::Rank::King));
+    hand.AddCard(std::make_shared<Card>(Card::Suit::Hearts,Card::Rank::Ace));
+    hand.AddCard(std::make_shared<Card>(Card::Suit::Hearts,Card::Rank::King));
+    hand.AddCard(std::make_shared<Card>(Card::Suit::Diamonds,Card::Rank::Jack));
   }
 };
 
@@ -456,11 +456,11 @@ struct TwoPairsAATTThClubs {
 
   TwoPairsAATTThClubs() : hand{}
   {
-    hand.AddCard(std::make_shared<Card>(CardSuit::Clubs,CardRank::Ace));
-    hand.AddCard(std::make_shared<Card>(CardSuit::Clubs,CardRank::Two));
-    hand.AddCard(std::make_shared<Card>(CardSuit::Hearts,CardRank::Ace));
-    hand.AddCard(std::make_shared<Card>(CardSuit::Hearts,CardRank::Two));
-    hand.AddCard(std::make_shared<Card>(CardSuit::Diamonds,CardRank::Three));
+    hand.AddCard(std::make_shared<Card>(Card::Suit::Clubs,Card::Rank::Ace));
+    hand.AddCard(std::make_shared<Card>(Card::Suit::Clubs,Card::Rank::Two));
+    hand.AddCard(std::make_shared<Card>(Card::Suit::Hearts,Card::Rank::Ace));
+    hand.AddCard(std::make_shared<Card>(Card::Suit::Hearts,Card::Rank::Two));
+    hand.AddCard(std::make_shared<Card>(Card::Suit::Diamonds,Card::Rank::Three));
   }
 };
 
@@ -469,11 +469,11 @@ struct TwoPairsKKQQJClubs {
 
   TwoPairsKKQQJClubs() : hand{}
   {
-    hand.AddCard(std::make_shared<Card>(CardSuit::Clubs,CardRank::King));
-    hand.AddCard(std::make_shared<Card>(CardSuit::Clubs,CardRank::Queen));
-    hand.AddCard(std::make_shared<Card>(CardSuit::Hearts,CardRank::King));
-    hand.AddCard(std::make_shared<Card>(CardSuit::Hearts,CardRank::Queen));
-    hand.AddCard(std::make_shared<Card>(CardSuit::Diamonds,CardRank::Jack));
+    hand.AddCard(std::make_shared<Card>(Card::Suit::Clubs,Card::Rank::King));
+    hand.AddCard(std::make_shared<Card>(Card::Suit::Clubs,Card::Rank::Queen));
+    hand.AddCard(std::make_shared<Card>(Card::Suit::Hearts,Card::Rank::King));
+    hand.AddCard(std::make_shared<Card>(Card::Suit::Hearts,Card::Rank::Queen));
+    hand.AddCard(std::make_shared<Card>(Card::Suit::Diamonds,Card::Rank::Jack));
   }
 };
 
@@ -494,11 +494,11 @@ struct PairAAKQJClubs {
 
   PairAAKQJClubs() : hand{}
   {
-    hand.AddCard(std::make_shared<Card>(CardSuit::Clubs,CardRank::Ace));
-    hand.AddCard(std::make_shared<Card>(CardSuit::Clubs,CardRank::King));
-    hand.AddCard(std::make_shared<Card>(CardSuit::Clubs,CardRank::Queen));
-    hand.AddCard(std::make_shared<Card>(CardSuit::Clubs,CardRank::Jack));
-    hand.AddCard(std::make_shared<Card>(CardSuit::Diamonds,CardRank::Ace));
+    hand.AddCard(std::make_shared<Card>(Card::Suit::Clubs,Card::Rank::Ace));
+    hand.AddCard(std::make_shared<Card>(Card::Suit::Clubs,Card::Rank::King));
+    hand.AddCard(std::make_shared<Card>(Card::Suit::Clubs,Card::Rank::Queen));
+    hand.AddCard(std::make_shared<Card>(Card::Suit::Clubs,Card::Rank::Jack));
+    hand.AddCard(std::make_shared<Card>(Card::Suit::Diamonds,Card::Rank::Ace));
   }
 };
 
@@ -507,11 +507,11 @@ struct PairAAKQJSpades {
 
   PairAAKQJSpades() : hand{}
   {
-    hand.AddCard(std::make_shared<Card>(CardSuit::Spades,CardRank::Ace));
-    hand.AddCard(std::make_shared<Card>(CardSuit::Spades,CardRank::King));
-    hand.AddCard(std::make_shared<Card>(CardSuit::Spades,CardRank::Queen));
-    hand.AddCard(std::make_shared<Card>(CardSuit::Spades,CardRank::Jack));
-    hand.AddCard(std::make_shared<Card>(CardSuit::Hearts,CardRank::Ace));
+    hand.AddCard(std::make_shared<Card>(Card::Suit::Spades,Card::Rank::Ace));
+    hand.AddCard(std::make_shared<Card>(Card::Suit::Spades,Card::Rank::King));
+    hand.AddCard(std::make_shared<Card>(Card::Suit::Spades,Card::Rank::Queen));
+    hand.AddCard(std::make_shared<Card>(Card::Suit::Spades,Card::Rank::Jack));
+    hand.AddCard(std::make_shared<Card>(Card::Suit::Hearts,Card::Rank::Ace));
   }
 };
 
@@ -520,11 +520,11 @@ struct PairKKAQJClubs {
 
   PairKKAQJClubs() : hand{}
   {
-    hand.AddCard(std::make_shared<Card>(CardSuit::Clubs,CardRank::Ace));
-    hand.AddCard(std::make_shared<Card>(CardSuit::Clubs,CardRank::King));
-    hand.AddCard(std::make_shared<Card>(CardSuit::Clubs,CardRank::Queen));
-    hand.AddCard(std::make_shared<Card>(CardSuit::Clubs,CardRank::Jack));
-    hand.AddCard(std::make_shared<Card>(CardSuit::Diamonds,CardRank::King));
+    hand.AddCard(std::make_shared<Card>(Card::Suit::Clubs,Card::Rank::Ace));
+    hand.AddCard(std::make_shared<Card>(Card::Suit::Clubs,Card::Rank::King));
+    hand.AddCard(std::make_shared<Card>(Card::Suit::Clubs,Card::Rank::Queen));
+    hand.AddCard(std::make_shared<Card>(Card::Suit::Clubs,Card::Rank::Jack));
+    hand.AddCard(std::make_shared<Card>(Card::Suit::Diamonds,Card::Rank::King));
   }
 };
 
@@ -533,11 +533,11 @@ struct PairAAQJTClubs {
 
   PairAAQJTClubs() : hand{}
   {
-    hand.AddCard(std::make_shared<Card>(CardSuit::Clubs,CardRank::Ace));
-    hand.AddCard(std::make_shared<Card>(CardSuit::Clubs,CardRank::Ten));
-    hand.AddCard(std::make_shared<Card>(CardSuit::Clubs,CardRank::Queen));
-    hand.AddCard(std::make_shared<Card>(CardSuit::Clubs,CardRank::Jack));
-    hand.AddCard(std::make_shared<Card>(CardSuit::Diamonds,CardRank::Ace));
+    hand.AddCard(std::make_shared<Card>(Card::Suit::Clubs,Card::Rank::Ace));
+    hand.AddCard(std::make_shared<Card>(Card::Suit::Clubs,Card::Rank::Ten));
+    hand.AddCard(std::make_shared<Card>(Card::Suit::Clubs,Card::Rank::Queen));
+    hand.AddCard(std::make_shared<Card>(Card::Suit::Clubs,Card::Rank::Jack));
+    hand.AddCard(std::make_shared<Card>(Card::Suit::Diamonds,Card::Rank::Ace));
   }
 };
 
@@ -557,11 +557,11 @@ struct HighCardAKQJNClubs {
 
   HighCardAKQJNClubs() : hand{}
   {
-    hand.AddCard(std::make_shared<Card>(CardSuit::Clubs,CardRank::Ace));
-    hand.AddCard(std::make_shared<Card>(CardSuit::Clubs,CardRank::King));
-    hand.AddCard(std::make_shared<Card>(CardSuit::Clubs,CardRank::Queen));
-    hand.AddCard(std::make_shared<Card>(CardSuit::Clubs,CardRank::Jack));
-    hand.AddCard(std::make_shared<Card>(CardSuit::Diamonds,CardRank::Nine));
+    hand.AddCard(std::make_shared<Card>(Card::Suit::Clubs,Card::Rank::Ace));
+    hand.AddCard(std::make_shared<Card>(Card::Suit::Clubs,Card::Rank::King));
+    hand.AddCard(std::make_shared<Card>(Card::Suit::Clubs,Card::Rank::Queen));
+    hand.AddCard(std::make_shared<Card>(Card::Suit::Clubs,Card::Rank::Jack));
+    hand.AddCard(std::make_shared<Card>(Card::Suit::Diamonds,Card::Rank::Nine));
   }
 };
 
@@ -570,11 +570,11 @@ struct HighCardAKQJNSpades {
 
   HighCardAKQJNSpades() : hand{}
   {
-    hand.AddCard(std::make_shared<Card>(CardSuit::Spades,CardRank::Ace));
-    hand.AddCard(std::make_shared<Card>(CardSuit::Spades,CardRank::King));
-    hand.AddCard(std::make_shared<Card>(CardSuit::Spades,CardRank::Queen));
-    hand.AddCard(std::make_shared<Card>(CardSuit::Spades,CardRank::Jack));
-    hand.AddCard(std::make_shared<Card>(CardSuit::Hearts,CardRank::Nine));
+    hand.AddCard(std::make_shared<Card>(Card::Suit::Spades,Card::Rank::Ace));
+    hand.AddCard(std::make_shared<Card>(Card::Suit::Spades,Card::Rank::King));
+    hand.AddCard(std::make_shared<Card>(Card::Suit::Spades,Card::Rank::Queen));
+    hand.AddCard(std::make_shared<Card>(Card::Suit::Spades,Card::Rank::Jack));
+    hand.AddCard(std::make_shared<Card>(Card::Suit::Hearts,Card::Rank::Nine));
   }
 };
 
@@ -583,11 +583,11 @@ struct HighCardKQJTEHearts {
 
   HighCardKQJTEHearts() : hand{}
   {
-    hand.AddCard(std::make_shared<Card>(CardSuit::Hearts,CardRank::Ten));
-    hand.AddCard(std::make_shared<Card>(CardSuit::Hearts,CardRank::King));
-    hand.AddCard(std::make_shared<Card>(CardSuit::Hearts,CardRank::Queen));
-    hand.AddCard(std::make_shared<Card>(CardSuit::Hearts,CardRank::Jack));
-    hand.AddCard(std::make_shared<Card>(CardSuit::Clubs,CardRank::Eight));
+    hand.AddCard(std::make_shared<Card>(Card::Suit::Hearts,Card::Rank::Ten));
+    hand.AddCard(std::make_shared<Card>(Card::Suit::Hearts,Card::Rank::King));
+    hand.AddCard(std::make_shared<Card>(Card::Suit::Hearts,Card::Rank::Queen));
+    hand.AddCard(std::make_shared<Card>(Card::Suit::Hearts,Card::Rank::Jack));
+    hand.AddCard(std::make_shared<Card>(Card::Suit::Clubs,Card::Rank::Eight));
   }
 };
 
